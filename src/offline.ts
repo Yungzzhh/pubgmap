@@ -5,7 +5,11 @@ export async function prepareOffline(onStatus: (status: OfflineStatus) => void, 
   onStatus('preparing');
   let timeout: ReturnType<typeof setTimeout> | undefined;
   try {
-    const registration = await navigator.serviceWorker.register('./sw.js', { scope: './', updateViaCache: 'none' });
+    const existing = await navigator.serviceWorker.getRegistration('./');
+    const registration = !navigator.onLine && existing?.active ? existing : await navigator.serviceWorker.register('./sw.js', { scope: './', updateViaCache: 'none' }).catch(error => {
+      if (existing?.active) return existing;
+      throw error;
+    });
     let checking = false;
     const check = () => {
       const worker = registration.active;

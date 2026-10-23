@@ -47,7 +47,7 @@ npm run preview -- --host 127.0.0.1 --port 4173 --strictPort --base=/pubgmap/
 ## 新鲜验证证据
 
 - TDD 首次运行：三个实现模块缺失，测试失败；实现后 12 项通过。
-- 离线恢复补充测试先失败，确认「缓存缺失后重试」未恢复资源；修复后共 15 项测试通过。
+- 离线恢复补充测试先失败，确认「缓存缺失后重试」未恢复资源；修复后通过。另补充断网启动测试，确保使用已安装的 Service Worker，不因在线更新注册失败误报缓存状态；共 16 项测试通过。
 - `npm run build`：TypeScript 检查和 Vite 生产构建通过；全部 10 项本地静态资源纳入预缓存。
 - `npm audit --omit=optional`：0 vulnerabilities。
 - Chromium 浏览器以实际鼠标及 CDP 多点触摸验证：已知 500 米、缩放和平移后距离不变、Reset 视角字符串严格相同、双指缩放后无标记。
@@ -55,6 +55,7 @@ npm run preview -- --host 127.0.0.1 --port 4173 --strictPort --base=/pubgmap/
 - 320×568、360×640、390×844、430×932、844×390、1365×900 布局检查通过：无页面溢出，重置按钮可见。
 - manifest 解析无错误；独立持久化 Chromium profile 的 `Page.getInstallabilityErrors` 返回空数组，PWA 安装条件检查通过。
 - 在独立测试 profile 中删除本应用地图缓存后，页面如实显示「缓存未完成」；点击「重新准备离线缓存」恢复地图资源并返回「离线就绪」。
+- WebKit 的 iPhone 15 模拟环境：触摸定点、Reset 保持视角、断网刷新和地图加载通过；393×659 无溢出，未出现页面错误。触摸落点的像素量化测试显示 497 米，在 500 米目标的 5 米容差内。
 
 ## 发布与验收边界
 
