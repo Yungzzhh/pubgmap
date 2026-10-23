@@ -60,4 +60,6 @@ npm run preview -- --host 127.0.0.1 --port 4173 --strictPort --base=/pubgmap/
 
 发布：进行中。
 
+首次 GitHub Actions 运行的测试、类型检查和生产构建均通过，但 `configure-pages` 读取站点返回 404。已通过 API 启用 Pages 的 workflow 发布方式，并为构建任务显式授予 `pages: read`，随后重新发布验证。
+
 尚未代替用户完成真实 iPhone / Android 主屏幕安装，以及游戏内已知点位距离对照验收。
