@@ -4,7 +4,9 @@
 
 ## 使用
 
-访问地址：`https://yungzzhh.github.io/pubgmap/`（发布状态见下方验收记录）。
+访问地址：[艾伦格测距](https://yungzzhh.github.io/pubgmap/)。
+
+源码仓库：[Yungzzhh/pubgmap](https://github.com/Yungzzhh/pubgmap)。
 
 1. 联网打开网页，等待右上角显示「离线就绪」。
 2. iPhone 用 Safari 的分享菜单选择「添加到主屏幕」；Android 用 Chrome 菜单选择「安装应用」或「添加到主屏幕」。
@@ -59,8 +61,16 @@ npm run preview -- --host 127.0.0.1 --port 4173 --strictPort --base=/pubgmap/
 
 ## 发布与验收边界
 
-发布：进行中。
+发布：完成。
 
 首次 GitHub Actions 运行的测试、类型检查和生产构建均通过，但 `configure-pages` 读取站点返回 404。已通过 API 启用 Pages 的 workflow 发布方式，并为构建任务显式授予 `pages: read`，随后重新发布验证。
+
+- 功能提交：`bd501dbb076b6f572d05ac510e5c35ce743ec9fe`。
+- [GitHub Actions 39891818902](https://github.com/Yungzzhh/pubgmap/actions/runs/39891818902)：16 项测试、类型检查、生产构建、build 与 deploy 均成功。
+- 线上页面 HTTP 200；初始发布全部 10 个静态资源逐项与本地产物进行 SHA-256 比对一致；最后更新的 `index.html`、JavaScript 与 `sw.js` 再次独立回读，比对一致。
+- 最新离线缓存版本：`5e5b47dce71cfba2`；Service Worker SHA-256：`b30ad228f59bd5d1a3740c8c8dffd476fd3124fa6a03f07e245b0875c0d51297`。
+- 实际线上地址的 Chromium iPhone 模拟环境：500 米测距、Reset 保留视角、原生双指触摸、manifest 解析通过；断网后刷新和新页面冷启动成功，地图完整加载，仍能测出 500 米，未出现页面 JavaScript 错误。
+
+![线上断网状态下的 500 米测距](./erangel-pwa/mobile-offline.png)
 
 尚未代替用户完成真实 iPhone / Android 主屏幕安装，以及游戏内已知点位距离对照验收。
