@@ -1,0 +1,11 @@
+:root {
+  --background: #101719;
+  --surface: #17211d;
+  --line: #2a3634;
+  --text: #e1e8df;
+  --muted: #7e9388;
+  --accent: #d4f580;
+  --orange: #ed9a63;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  color-scheme: dark;
+}
