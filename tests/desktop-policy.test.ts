@@ -8,15 +8,15 @@ import { createHash } from 'node:crypto';
 import policy from '../desktop/policy.cjs';
 
 test('桌面资源只能读取程序包内的静态文件，支持中文及空格路径', () => {
-  assert.equal(policy.resolveLocalFile('pubgmap://app/', '/应用目录/地图/renderer'), '/应用目录/地图/renderer/index.html');
-  assert.equal(policy.resolveLocalFile('pubgmap://app/maps/sanhok.webp?v=1', '/app/renderer'), '/app/renderer/maps/sanhok.webp');
+  assert.equal(policy.resolveLocalFile('pubgmap://app/', '/应用目录/地图/renderer', path.posix), '/应用目录/地图/renderer/index.html');
+  assert.equal(policy.resolveLocalFile('pubgmap://app/maps/sanhok.webp?v=1', '/app/renderer', path.posix), '/app/renderer/maps/sanhok.webp');
   assert.equal(policy.resolveLocalFile('pubgmap://app/assets/app.js', 'C:\\中文目录\\PUBG Map\\renderer', path.win32), 'C:\\中文目录\\PUBG Map\\renderer\\assets\\app.js');
   for (const url of ['https://example.com/index.html', 'file:///etc/passwd', 'pubgmap://other/maps/map.webp', 'pubgmap://app/main.cjs', 'pubgmap://app/maps/%2f..%2f..%2fmain.cjs', 'pubgmap://app/maps/%5c..%5cmain.cjs', 'pubgmap://app/maps/%00.webp']) assert.throws(() => policy.resolveLocalFile(url, '/app/renderer'), undefined, url);
 });
 
 test('Windows 便携数据目录位于 EXE 旁，开发数据隔离', () => {
   assert.equal(policy.portableDataDirectory({ packaged: true, executable: 'D:\\游戏工具\\PUBG Map\\PUBGRangefinder.exe', project: 'ignored' }, path.win32), 'D:\\游戏工具\\PUBG Map\\data');
-  assert.equal(policy.portableDataDirectory({ packaged: false, executable: '/electron', project: '/repo/desktop' }), '/repo/desktop/.data');
+  assert.equal(policy.portableDataDirectory({ packaged: false, executable: '/electron', project: '/repo/desktop' }, path.posix), '/repo/desktop/.data');
 });
 
 test('主进程窗口权限保持沙箱隔离，网络和外部导航被限制', () => {
