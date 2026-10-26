@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "艾伦格迫击炮测距",
-  "short_name": "艾伦格测距",
-  "description": "离线地图、双指缩放、两点测距，重置定点保留视角。",
+  "name": "PUBG 多地图迫击炮测距",
+  "short_name": "PUBG测距",
+  "description": "六张离线地图、双指缩放、两点测距，重置定点保留视角。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

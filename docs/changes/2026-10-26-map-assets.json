@@ -1,0 +1,118 @@
+[
+  {
+    "id": "erangel",
+    "name": "艾伦格",
+    "meters": 8192,
+    "source": {
+      "file": "Erangel_Main_High_Res.png",
+      "note": "沿用 2026-10-23 已校验资源"
+    },
+    "asset": {
+      "file": "public/maps/erangel.webp",
+      "bytes": 2559008,
+      "sha256": "c2e16dc59656ebaaedb9eb7f64a5e55208a270e74ae3ba297e00fff1015d4b2c",
+      "width": 4096,
+      "height": 4096
+    }
+  },
+  {
+    "id": "miramar",
+    "name": "米拉玛",
+    "meters": 8192,
+    "source": {
+      "file": "Miramar_Main_High_Res.png",
+      "url": "https://media.githubusercontent.com/media/pubg/api-assets/master/Assets/Maps/Miramar_Main_High_Res.png",
+      "bytes": 112130983,
+      "sha256": "7d8a9878b699c7eb51fecda2bc57b9e75e2120c3117b9c9e95b03dd8ab5a42a9",
+      "width": 8192,
+      "height": 8192
+    },
+    "asset": {
+      "file": "public/maps/miramar.webp",
+      "bytes": 3904358,
+      "sha256": "b44cc381c1ed8f84bd3e8217b6bcd7c822431928344dd8eb152efc08c7d2c293",
+      "width": 4096,
+      "height": 4096
+    }
+  },
+  {
+    "id": "sanhok",
+    "name": "萨诺",
+    "meters": 4096,
+    "source": {
+      "file": "Sanhok_Main_High_Res.png",
+      "url": "https://media.githubusercontent.com/media/pubg/api-assets/master/Assets/Maps/Sanhok_Main_High_Res.png",
+      "bytes": 75323315,
+      "sha256": "fa28839b56a2180cae7d4339107dd11bafc6e22c9048f650263852a04cc8c2f0",
+      "width": 8192,
+      "height": 8192
+    },
+    "asset": {
+      "file": "public/maps/sanhok.webp",
+      "bytes": 2011898,
+      "sha256": "2028a39f4e0dc315481b6c2cc7570f5690df3e70f02a4aac654d14feaea8288b",
+      "width": 4096,
+      "height": 4096
+    }
+  },
+  {
+    "id": "vikendi",
+    "name": "维寒迪",
+    "meters": 8192,
+    "source": {
+      "file": "Vikendi_Main_High_Res.png",
+      "url": "https://media.githubusercontent.com/media/pubg/api-assets/master/Assets/Maps/Vikendi_Main_High_Res.png",
+      "bytes": 108774963,
+      "sha256": "fb8a4e7fe0daac84aabb54689cb2cf4cca284294ae357fe8dc384a0f0fd7167d",
+      "width": 8192,
+      "height": 8192
+    },
+    "asset": {
+      "file": "public/maps/vikendi.webp",
+      "bytes": 3187708,
+      "sha256": "c85e91c54454a7a345eeb91beaa8f61e4a66c3cd63eeed067edf17aaa471bfc2",
+      "width": 4096,
+      "height": 4096
+    }
+  },
+  {
+    "id": "taego",
+    "name": "泰戈",
+    "meters": 8192,
+    "source": {
+      "file": "Taego_Main_High_Res.png",
+      "url": "https://media.githubusercontent.com/media/pubg/api-assets/master/Assets/Maps/Taego_Main_High_Res.png",
+      "bytes": 105408276,
+      "sha256": "cd6295ad924cff220bec5680a0f85f2e29483c0d9d1dd409c9f8f4d52d5308d2",
+      "width": 8192,
+      "height": 8192
+    },
+    "asset": {
+      "file": "public/maps/taego.webp",
+      "bytes": 2814118,
+      "sha256": "586b3bbe17f45a5a3a870a15ffd3c43615eca8f439e37119b131f9977ae24ad1",
+      "width": 4096,
+      "height": 4096
+    }
+  },
+  {
+    "id": "deston",
+    "name": "帝斯顿",
+    "meters": 8192,
+    "source": {
+      "file": "Deston_Main_High_Res.png",
+      "url": "https://media.githubusercontent.com/media/pubg/api-assets/master/Assets/Maps/Deston_Main_High_Res.png",
+      "bytes": 75200260,
+      "sha256": "e6d91373539137377580e3d7f6b8d4db834f54c5b27863fcf985c2b0bcf3993a",
+      "width": 8192,
+      "height": 8192
+    },
+    "asset": {
+      "file": "public/maps/deston.webp",
+      "bytes": 2588950,
+      "sha256": "28fc469ee020c978a65bc3bb185f5b3185b033b960b7f4178853353418289737",
+      "width": 4096,
+      "height": 4096
+    }
+  }
+]

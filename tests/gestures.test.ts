@@ -51,3 +51,14 @@ test('系统取消触摸或丢失 pointer capture 不会定点', () => {
   s.gesture.up(1, { x: 100, y: 100 });
   assert.equal(s.taps.length, 0);
 });
+
+test('切换地图清除未结束手势，旧触摸松手不能在新地图定点', () => {
+  const s = setup();
+  s.gesture.down(1, { x: 100, y: 100 });
+  s.gesture.clear();
+  s.gesture.up(1, { x: 100, y: 100 });
+  assert.equal(s.taps.length, 0);
+  s.gesture.down(2, { x: 120, y: 120 });
+  s.gesture.up(2, { x: 120, y: 120 });
+  assert.equal(s.taps.length, 1);
+});

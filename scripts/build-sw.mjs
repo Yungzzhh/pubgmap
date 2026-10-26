@@ -1,7 +1,16 @@
-import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile, writeFile, stat } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { MAPS } from '../src/maps.ts';
+
+export async function verifyMapAssets(directory) {
+  for (const map of MAPS) {
+    const asset = join(directory, map.image);
+    const info = await stat(asset).catch(() => null);
+    if (!info?.isFile() || info.size === 0) throw new Error(`Missing map asset: ${map.id} (${map.image})`);
+  }
+}
 
 export async function buildServiceWorker(directory) {
   const files = [];
@@ -86,6 +95,7 @@ self.addEventListener('fetch', event => {
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  await verifyMapAssets(resolve('dist'));
   const result = await buildServiceWorker(resolve('dist'));
   console.log(`Offline cache ${result.version}: ${result.assets.length} local assets`);
 }

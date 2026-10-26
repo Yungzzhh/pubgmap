@@ -7,8 +7,8 @@ export type Measurement = { view: View; origin: Point | null; target: Point | nu
 export const MAP_METERS = 8192;
 export const MAX_ZOOM = 16;
 
-export function distanceMeters(a: Point, b: Point): number {
-  return Math.hypot(b.x - a.x, b.y - a.y) * MAP_METERS;
+export function distanceMeters(a: Point, b: Point, mapMeters: number = MAP_METERS): number {
+  return Math.hypot(b.x - a.x, b.y - a.y) * mapMeters;
 }
 
 export function fitView(viewport: Viewport): View {

@@ -18,6 +18,11 @@ export class MapGesture {
 
   constructor(options: Options) { this.options = options; }
 
+  clear(): void {
+    this.pointers.clear();
+    this.blockedTap = false;
+  }
+
   down(id: number, point: Point): void {
     this.pointers.set(id, { start: point, current: point, dragged: false });
     if (this.pointers.size > 1) this.blockedTap = true;
