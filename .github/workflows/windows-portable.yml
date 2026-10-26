@@ -1,0 +1,75 @@
+name: Windows 便携版构建与启动验证
+
+on:
+  push:
+    branches: [main, codex/windows-portable]
+    paths:
+      - 'desktop/**'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.ts'
+      - 'tsconfig.json'
+      - 'index.html'
+      - '.github/workflows/windows-portable.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-portable-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            desktop/package-lock.json
+      - run: npm ci
+      - run: npm ci --prefix desktop
+      - run: npm test
+      - run: npm run build:desktop
+      - run: npm run pack:win --prefix desktop
+      - name: 将便携 ZIP 解压至中文与空格路径
+        shell: pwsh
+        run: |
+          $zip = Join-Path $env:RUNNER_TEMP 'PUBG-Rangefinder-1.2.0-win-x64-portable.zip'
+          Compress-Archive -Path 'desktop/release/win-unpacked/*' -DestinationPath $zip
+          $destination = Join-Path $env:RUNNER_TEMP 'PUBG 中文便携 测试'
+          Expand-Archive -Path $zip -DestinationPath $destination
+          $exe = Join-Path $destination 'PUBGRangefinder.exe'
+          if (-not (Test-Path $exe)) { throw '便携 ZIP 中未找到 EXE' }
+          "PUBGMAP_EXE=$exe" >> $env:GITHUB_ENV
+      - name: 首次离线启动 EXE 并验证六地图测距
+        shell: pwsh
+        run: node desktop/scripts/smoke.mjs "$env:PUBGMAP_EXE"
+      - name: 上传便携应用文件
+        uses: actions/upload-artifact@v4
+        with:
+          name: PUBG-Rangefinder-1.2.0-win-x64-portable
+          path: desktop/release/win-unpacked/
+          retention-days: 90
+          compression-level: 6
+          if-no-files-found: error
+      - name: 上传验收记录
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Windows-portable-verification
+          path: output/desktop/
+          retention-days: 90
+          if-no-files-found: ignore

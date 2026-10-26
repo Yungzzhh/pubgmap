@@ -1,6 +1,7 @@
-export type OfflineStatus = 'preparing' | 'ready' | 'failed' | 'unsupported';
+export type OfflineStatus = 'preparing' | 'ready' | 'failed' | 'unsupported' | 'bundled';
 
-export async function prepareOffline(onStatus: (status: OfflineStatus) => void, repair = false): Promise<void> {
+export async function prepareOffline(onStatus: (status: OfflineStatus) => void, repair = false, mode: 'web' | 'desktop' = 'web'): Promise<void> {
+  if (mode === 'desktop') { onStatus('bundled'); return; }
   if (!('serviceWorker' in navigator) || !window.isSecureContext) { onStatus('unsupported'); return; }
   onStatus('preparing');
   let timeout: ReturnType<typeof setTimeout> | undefined;

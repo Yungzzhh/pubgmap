@@ -2,6 +2,19 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { prepareOffline } from '../src/offline.ts';
 
+test('桌面应用首次离线直接使用内置资源，不访问 Service Worker 或网络', async () => {
+  const originalNavigator = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
+  Object.defineProperty(globalThis, 'navigator', { configurable: true, get() { throw new Error('Desktop must not access browser cache APIs'); } });
+  const states: string[] = [];
+  try {
+    await prepareOffline(status => states.push(status), false, 'desktop');
+    assert.deepEqual(states, ['bundled']);
+  } finally {
+    if (originalNavigator) Object.defineProperty(globalThis, 'navigator', originalNavigator);
+    else Reflect.deleteProperty(globalThis, 'navigator');
+  }
+});
+
 test('断网更新注册失败时，仍能识别已安装且缓存完整的 Service Worker', async () => {
   const originalNavigator = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
   const originalWindow = Object.getOwnPropertyDescriptor(globalThis, 'window');

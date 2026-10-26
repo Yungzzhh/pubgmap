@@ -8,6 +8,7 @@ import type { OfflineStatus } from './offline.ts';
 import { MAPS, MapSessions, getMap, mapGrid } from './maps.ts';
 
 const $ = <T extends Element = HTMLElement>(selector: string): T => document.querySelector<T>(selector)!;
+const desktopMode = import.meta.env.MODE === 'desktop';
 
 $('#app').innerHTML = `
   <header class="topbar">
@@ -44,6 +45,23 @@ $('#app').innerHTML = `
   <dialog id="help-dialog"><div class="dialog-heading"><span class="eyebrow">READY WHEN YOU ARE</span><button class="icon-button" id="close-help" aria-label="关闭说明">${icon('close')}</button></div><h2>把战场地图，装进口袋。</h2><p class="dialog-intro">安装到主屏幕后，可以像 App 一样打开。</p><ol class="install-steps"><li><span>01</span><div><strong>联网打开，等待全部地图缓存完成</strong><p id="cache-description">六张地图与应用正在保存到这台设备。</p></div></li><li><span>02</span><div><strong>添加到手机主屏幕</strong><p>iPhone：用 Safari 打开，点分享 →「添加到主屏幕」。<br>Android：在 Chrome 菜单中选择「安装应用」或「添加到主屏幕」。</p></div></li><li><span>03</span><div><strong>打开一次，再安心离线</strong><p>从主屏幕启动，确认显示「离线就绪」后即可断网切换全部地图。浏览器数据被清理后，需要重新联网缓存。</p></div></li></ol><button class="primary-button" id="native-install" hidden>${icon('download')}安装应用</button><button class="secondary-button" id="retry-cache" hidden>重新准备离线缓存</button><div class="dialog-notes"><p>点击地图左上角名称切换战场。每张地图独立保留本次打开期间的定点和视角；下次打开会记住上次选择的地图。</p><p>轻点设置炮位 A，再点目标 B 即可测距。后续点击只调整目标；重置定点保留视角。地图可用方向键移动，按 + / − 缩放。</p><p>结果为地图水平直线距离，不含地形高差及弹道修正。参考射程 121–700 米。</p><p>地图来源：<a href="https://github.com/pubg/api-assets" target="_blank" rel="noreferrer">PUBG 官方 API 素材</a>。本工具为非官方玩家工具，地图版权归 KRAFTON 所有。</p></div></dialog>
 `;
 
+if (desktopMode) {
+  document.body.classList.add('desktop-app');
+  $('.brand').removeAttribute('href');
+  $('.brand').setAttribute('aria-label', 'PUBG 桌面测距');
+  $('.brand-sub').textContent = '桌面离线测距';
+  $('#install-button').hidden = true;
+  $('#native-install').hidden = true;
+  $('#help-button').setAttribute('aria-label', '使用说明');
+  $('#offline-badge').setAttribute('aria-label', '查看本地地图说明');
+  $('#help-dialog h2').textContent = 'PUBG 迫击炮测距';
+  $('.dialog-intro').textContent = '六张地图已内置，解压后即可离线使用。';
+  $('.install-steps').innerHTML = '<li><span>01</span><div><strong>选择战场</strong><p id="cache-description">从左上角切换六张内置地图。</p></div></li><li><span>02</span><div><strong>点击两次，即可测距</strong><p>先选炮位，再选目标；按住拖动地图，滚轮或双指缩放。重置定点保留当前视角。</p></div></li><li><span>03</span><div><strong>随程序一起带走</strong><p>上次选择的地图保存在程序旁的 data 文件夹。移动或更新应用时，请一同保留这个文件夹。</p></div></li>';
+  $('#help-dialog a').replaceWith(document.createTextNode('PUBG 官方 API 素材'));
+  $('.quick-guide p:nth-of-type(2) span').textContent = '按住拖动地图，滚轮或双指缩放';
+  $('.panel-footer > span:last-child').textContent = 'v1.2 桌面版';
+}
+
 const viewport = $('#map-viewport');
 let dimensions = { width: viewport.clientWidth, height: viewport.clientHeight };
 let savedMap: string | null = null;
@@ -63,7 +81,7 @@ function renderMapMetadata(): void {
   $('.map-card').setAttribute('aria-label', `${activeMap.name}地图`);
   viewport.setAttribute('aria-label', `${activeMap.name}交互地图：轻点设置炮位，再轻点设置目标；单指拖动，双指缩放`);
   image.alt = `PUBG ${activeMap.name}完整地图`;
-  document.title = `${activeMap.name}测距 · PUBG MAP`;
+  document.title = `${activeMap.name}测距 · PUBG MAP${desktopMode ? ' 桌面版' : ''}`;
   $('#grid-overlay').setAttribute('viewBox', `0 0 ${activeMap.meters} ${activeMap.meters}`);
   $('#grid-overlay').innerHTML = mapGrid(activeMap.meters).map(line => `<path class="${line.major ? 'grid-major' : 'grid-minor'}" d="M${line.position} 0V${activeMap.meters}M0 ${line.position}H${activeMap.meters}"/>`).join('');
 }
@@ -119,7 +137,7 @@ function renderMeasurement(): void {
   $('#origin-detail').textContent = state.origin ? '炮位已固定' : '轻点地图设置炮位';
   $('#target-detail').textContent = state.target ? '轻点地图可更换目标' : '再次轻点，计算距离';
   $<HTMLButtonElement>('#reset-points').disabled = !state.origin;
-  $('#hint-text').textContent = !state.origin ? '轻点地图，设置迫击炮位置' : !state.target ? '再次轻点，选择目标位置' : '轻点更换目标 · 双指缩放地图';
+  $('#hint-text').textContent = !state.origin ? '轻点地图，设置迫击炮位置' : !state.target ? '再次轻点，选择目标位置' : desktopMode ? '点击更换目标 · 滚轮缩放地图' : '轻点更换目标 · 双指缩放地图';
   const indicator = $('#range-position');
   indicator.hidden = distance === null;
   if (distance !== null) indicator.style.left = `${Math.max(0, Math.min(100, (distance - 121) / (700 - 121) * 100))}%`;
@@ -169,7 +187,7 @@ const onMapLoad = () => {
   mapLoaded = true; $('#map-loading').hidden = true;
 };
 image.addEventListener('load', onMapLoad);
-image.addEventListener('error', () => { mapLoaded = false; $('#map-loading').hidden = false; $('#map-loading-text').textContent = '地图加载失败，请联网重试'; $('#retry-map').hidden = false; });
+image.addEventListener('error', () => { mapLoaded = false; $('#map-loading').hidden = false; $('#map-loading-text').textContent = desktopMode ? '本地地图读取失败，请重新解压完整应用包' : '地图加载失败，请联网重试'; $('#retry-map').hidden = false; });
 if (image.complete && image.naturalWidth > 0) onMapLoad();
 function loadMap(): void {
   mapLoaded = false;
@@ -201,13 +219,20 @@ dialog.addEventListener('click', event => { const rect = dialog.getBoundingClien
 
 type InstallEvent = Event & { prompt: () => Promise<void>; userChoice: Promise<{ outcome: string }> };
 let deferredInstall: InstallEvent | null = null;
-window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); deferredInstall = event as InstallEvent; $('#native-install').hidden = false; });
+window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); if (desktopMode) return; deferredInstall = event as InstallEvent; $('#native-install').hidden = false; });
 $('#native-install').addEventListener('click', async () => { if (!deferredInstall) return; await deferredInstall.prompt(); await deferredInstall.userChoice; deferredInstall = null; $('#native-install').hidden = true; });
 window.addEventListener('appinstalled', () => { $('#install-button').hidden = true; $('#native-install').hidden = true; });
 if (matchMedia('(display-mode: standalone)').matches) $('#install-button').hidden = true;
 
 let offlineStatus: OfflineStatus = 'preparing';
 function renderOffline(): void {
+  if (offlineStatus === 'bundled') {
+    $('#offline-badge').classList.add('ready');
+    $('#offline-label').textContent = '地图已内置';
+    $('#cache-description').textContent = '六张地图直接来自程序文件，可以立即离线切换和测距。';
+    $('#retry-cache').hidden = true;
+    return;
+  }
   const ready = offlineStatus === 'ready';
   $('#offline-badge').classList.toggle('ready', ready);
   $('#offline-badge').classList.toggle('failed', offlineStatus === 'failed');
@@ -215,7 +240,7 @@ function renderOffline(): void {
   $('#cache-description').textContent = ready ? '全部六张地图与应用已完整缓存到这台设备，可以离线切换和测距。' : offlineStatus === 'unsupported' ? '请通过 HTTPS 地址或 localhost 打开，才能启用离线缓存。' : offlineStatus === 'failed' ? '缓存尚未完成，请保持联网并重新准备离线缓存。' : '六张地图与应用正在保存到这台设备，请暂时保持联网。';
   $('#retry-cache').hidden = offlineStatus !== 'failed';
 }
-const startOffline = (repair = false) => void prepareOffline(status => { offlineStatus = status; renderOffline(); }, repair);
+const startOffline = (repair = false) => void prepareOffline(status => { offlineStatus = status; renderOffline(); }, repair, desktopMode ? 'desktop' : 'web');
 $('#retry-cache').addEventListener('click', () => startOffline(true));
 window.addEventListener('online', renderOffline);
 window.addEventListener('offline', renderOffline);

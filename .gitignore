@@ -4,3 +4,7 @@ dist/
 .playwright-cli/
 output/
 *.local
+desktop/renderer/
+desktop/release/
+desktop/.data/
+docs/changes/windows-portable/*.zip
