@@ -38,6 +38,7 @@
 
 Windows 10/11 x64，完整解压后运行 PUBGRangefinder.exe。更新时先退出应用，将旧版 EXE 旁的 data 文件夹保留并放在新版 EXE 旁，即可继续使用原来的载具记录和筛选。程序为未做数字签名的便携版。
 
+- [Windows v1.4.0 便携包直接下载](https://github.com/Yungzzhh/pubgmap/releases/download/v1.4.0/PUBG-Rangefinder-1.4.0-win-x64-portable.zip)，或打开 [Release 页面](https://github.com/Yungzzhh/pubgmap/releases/tag/v1.4.0)。
 - [GitHub 构建产物下载](https://github.com/Yungzzhh/pubgmap/actions/runs/40475600761/artifacts/12720168337)（需要登录，产物保留 90 天）。
 - [Windows 实际 EXE 验收记录](./secret-rooms/verification.json)：禁用外部 DNS 首次启动，六图分别测距 500 米，独立密室筛选，7 px 图形视口、10 px 几何底圈，图标处测距、Reset 保留及完整退出重开恢复均通过。
 - 载具仍为原 257 个社区点，自记点使用原存储格式；新增密室筛选不重写载具数据。
@@ -51,3 +52,13 @@ Windows 10/11 x64，完整解压后运行 PUBGRangefinder.exe。更新时先退�
 - [独立包校验](./secret-rooms/archive-verification.json)：72 条目 CRC、Windows x64 PE、15 项内置资源哈希、六图原始字节、257 个载具点及 60 个密室/掩体点标识均通过。MIT 全文完整保留，未包含个人 data 文件夹。
 - 主进程、隔离策略及许可文本与源码比较时仅将 Windows CRLF 换行规范为 LF；二进制地图按原始字节比较。
 - 代码审查核对图层不截获点击、缩放只影响图案、保存失败不改内存状态、密室存储与旧载具记录隔离。实际游戏版本与模式对入口和开启条件的影响仍以游戏为准。
+
+## GitHub 正式发布
+
+2026-10-27 按用户要求，将 Windows、载具、密室及小图标更新非强制快进到默认 main 分支，同时发布 [v1.4.0 Release](https://github.com/Yungzzhh/pubgmap/releases/tag/v1.4.0)。版本 tag 指向已验收源码 7d81d6a869f6d60e15fd3565895978157b27fa70；便携 ZIP 的上传后摘要与本机文件完全一致。
+
+- [main 的 Windows 自动构建与实际 EXE 验收](https://github.com/Yungzzhh/pubgmap/actions/runs/40477188171) 成功。
+- [main 的网页构建与 Pages 部署](https://github.com/Yungzzhh/pubgmap/actions/runs/40477188086) 成功；线上页面的 JS、CSS 与本次本机构建的 SHA-256 一致。
+- 无需登录 GitHub 即可取得公开发行资产；经公开资产 API 跳转的下载探针返回 HTTP 206，ZIP 文件头有效。完整文件摘要以发行资产 API 和本机文件 SHA-256 双重核对。
+- 本次发布前重新执行 43 项单元测试、类型检查、网页及桌面构建，全部通过。
+- 详见 [GitHub 发布验证记录](./secret-rooms/github-publication.json)。
