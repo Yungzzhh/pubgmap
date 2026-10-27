@@ -1,0 +1,89 @@
+- banner:
+  - link "PUBG 测距首页":
+    - /url: ./
+    - text: PUBG MAP
+    - generic: 离线测距
+  - generic: 让每一次瞄准，更有把握。
+  - button "密室位置设置" [expanded] [active]:
+    - generic: 密室位置
+  - button "载具点位设置":
+    - generic: 载具点位
+  - button "查看离线缓存状态":
+    - generic: 缓存未完成
+  - button "安装到手机":
+    - generic: 安装到手机
+- main:
+  - region "艾伦格地图":
+    - application "艾伦格交互地图：轻点设置炮位，再轻点设置目标；单指拖动，双指缩放":
+      - img "PUBG 艾伦格完整地图"
+    - generic: 切换战场 · 6 张离线地图
+    - heading "艾伦格" [level=1]:
+      - combobox "选择地图":
+        - option "艾伦格" [selected]
+        - option "米拉玛"
+        - option "萨诺"
+        - option "维寒迪"
+        - option "泰戈"
+        - option "帝斯顿"
+    - generic: ERANGEL
+    - generic: 经典海岛 · 8 × 8 km
+    - generic: "N"
+    - button "放大地图":
+    - generic: 1.0×
+    - button "缩小地图" [disabled]:
+    - button "查看完整地图":
+    - button "显示一公里网格":
+    - generic: 1 km
+    - text: PUBG ORIGINAL MAP
+    - generic: ERANGEL · NORTH UP
+    - region "密室位置设置面板":
+      - strong: 密室与地下掩体
+      - button "关闭密室设置":
+      - checkbox "显示密室位置 19 点" [checked]
+      - text: 显示密室位置
+      - generic: 19 点
+      - checkbox "钥匙密室" [checked]
+      - text: 钥匙密室
+      - checkbox "地下掩体" [checked]
+      - text: 地下掩体
+      - paragraph: 预置：钥匙密室 15 · 地下掩体 4。资料为部分参考位置，不是完整清单。
+      - paragraph:
+        - text: 社区参考资料 · 2025-12 快照
+        - text: 钥匙图标为原资料的密室，房屋图标为地下掩体。掩体不一定是钥匙密室；入口及开启条件以当前游戏模式和版本为准。
+      - paragraph:
+        - text: 来源：KampfKarten · MIT
+        - text: 位置已内置，可断网查看。地图上的图标已缩小 50%，缩放地图时保持图标大小。
+      - status: 筛选自动保存在本机；Reset 保留图层和视角。
+    - generic: 轻点地图，设置迫击炮位置
+  - complementary:
+    - generic: PRECISION IN EVERY SHOT
+    - heading "迫击炮测距" [level=2]
+    - paragraph: 定下炮位，让距离一目了然。
+    - region "测距结果":
+      - text: 两点直线距离
+      - generic: RANGE
+      - status: —
+      - generic: 米
+      - generic: 等待定点
+      - generic: 121 m
+      - generic: 迫击炮参考射程
+      - generic: 700 m
+    - generic: A
+    - strong: 迫击炮位置
+    - generic: 轻点地图设置炮位
+    - generic: B
+    - strong: 目标位置
+    - generic: 再次轻点，计算距离
+    - button "重置定点 RESET" [disabled]:
+      - generic: 重置定点
+      - generic: RESET
+    - paragraph: 只清除定点，保留当前缩放与位置
+    - generic: 操作指南
+    - paragraph:
+      - generic: 轻点两次，确定炮位与目标
+    - paragraph:
+      - generic: 单指拖动地图，双指自由缩放
+    - paragraph:
+      - generic: 保持炮位，继续轻点可更换目标
+    - text: 为离线而设计
+    - generic: v1.4.1 网页版

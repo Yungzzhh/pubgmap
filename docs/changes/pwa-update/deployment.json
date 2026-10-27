@@ -1,0 +1,18 @@
+{
+  "url": "https://yungzzhh.github.io/pubgmap/",
+  "status": 200,
+  "sourceCommit": "5a5bb36416ac31fda6eab16442e02199f308823e",
+  "pagesRun": 40482008834,
+  "assets": [
+    {
+      "path": "assets/index-Df7gkw7t.js",
+      "sha256": "cf3c346444e8118cd34b88507ecd4afe018d3f1ab890ec7c8260962d832afa99"
+    },
+    {
+      "path": "assets/index-DvkyQTo_.css",
+      "sha256": "0e85d129ac547745df1f94354d9f1db3445381496bb8154c015e9e18e0334ea8"
+    }
+  ],
+  "workerSha256": "a04c7c7defca8256d95406557731fc0f33e624920e4cf775d9bbf40179389ef3",
+  "workerVersion": "ae8f15dee00a4f9d"
+}
