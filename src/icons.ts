@@ -1,4 +1,6 @@
 const paths: Record<string, string> = {
+  car: '<path d="m5 8 2-4h10l2 4M4 8h16v9H4zM7 17v3m10-3v3M7 12h2m6 0h2M5 8H2m17 0h3"/>',
+  plane: '<path d="m12 2 2 8 7 5v2l-7-3v5l2 2-4-1-4 1 2-2v-5l-7 3v-2l7-5 2-8Z"/>',
   target: '<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>',
   plus: '<path d="M12 5v14M5 12h14"/>',
   minus: '<path d="M5 12h14"/>',
@@ -14,6 +16,6 @@ const paths: Record<string, string> = {
   compass: '<path d="m16 8-3 5-5 3 3-5 5-3Z"/><circle cx="12" cy="12" r="9"/>',
 };
 
-export function icon(name: string, className = ''): string {
-  return `<svg class="icon ${className}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] ?? paths.target}</svg>`;
+export function icon(name: string, className = '', size = 22): string {
+  return `<svg class="icon ${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] ?? paths.target}</svg>`;
 }

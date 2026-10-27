@@ -30,6 +30,41 @@ a { color: inherit; }
 .install-button .icon { width: 16px; height: 16px; }
 .help-button { display: none !important; }
 .desktop-app .help-button { display: grid !important; }
+.vehicle-toolbar-button { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 40px; padding: 0 12px; border: 1px solid #3b4b50; border-radius: 7px; background: #192427; font-size: 12px; white-space: nowrap; }
+.vehicle-toolbar-button .icon { width: 18px; height: 18px; }
+.vehicle-toolbar-button.layer-active { color: #9ed8f3; border-color: #547584; }
+.vehicle-toolbar-button.is-recording { color: var(--accent); border-color: var(--accent); }
+.vehicle-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
+.vehicle-point { color: #89d5fa; }
+.vehicle-point.vehicle-aircraft { color: #d0b3ff; }
+.vehicle-point > circle { stroke: currentColor; stroke-width: 1.2; fill: #101c20e6; }
+.vehicle-point.vehicle-fixed > circle:first-child { fill: currentColor; }
+.vehicle-point .icon { width: 14px; height: 14px; stroke-width: 1.7; }
+.vehicle-point.vehicle-fixed .icon { color: #101719; }
+.vehicle-point .user-point-dot { fill: #f5ffe8; stroke: #101719; stroke-width: 1; }
+.vehicle-panel { position: absolute; right: 16px; top: 16px; z-index: 12; width: min(310px, calc(100% - 24px)); max-height: calc(100% - 32px); overflow: auto; padding: 13px 16px 15px; background: #14201ef8; color: var(--text); border: 1px solid #536863; border-radius: 10px; box-shadow: 0 12px 36px #0006; }
+.vehicle-panel-heading { display: flex; align-items: center; justify-content: space-between; margin: -5px -7px 4px 0; }
+.vehicle-panel-heading strong { font-size: 15px; font-weight: 550; }
+.vehicle-visibility { display: flex; align-items: center; gap: 8px; font-size: 12px; min-height: 32px; }
+#vehicle-total { color: #94a89c; margin-left: auto; font: 11px var(--mono); }
+.vehicle-panel input { accent-color: var(--accent); width: 14px; height: 14px; margin: 0; }
+.vehicle-filters { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; border: solid #34453e; border-width: 1px 0; padding: 7px 0; margin: 7px 0; }
+.vehicle-filters label { display: flex; align-items: center; gap: 7px; font-size: 11px; min-height: 30px; cursor: pointer; }
+.vehicle-filters .icon { width: 16px; height: 16px; }
+.vehicle-car { color: #89d5fa; }
+.vehicle-aircraft { color: #d0b3ff; }
+.spawn-dot { border: 1px solid #adc9bc; border-radius: 50%; width: 10px; height: 10px; }
+.spawn-dot.fixed { background: #adc9bc; }
+.vehicle-scope { color: #bbcdbf; font-size: 10px; line-height: 1.8; margin: 8px 0; }
+.vehicle-source { font-size: 9px; line-height: 1.8; color: #8b9f92; margin: 8px 0 12px; }
+.vehicle-record-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.vehicle-record-options label { display: flex; flex-direction: column; gap: 4px; font-size: 10px; color: #a7bcad; }
+.vehicle-record-options select { color: var(--text); background: #1b2c24; border: 1px solid #425a4b; border-radius: 5px; font: inherit; min-height: 34px; padding: 4px 6px; }
+.vehicle-record-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.vehicle-record-buttons button { font-size: 10px; min-height: 38px; }
+.vehicle-status { font-size: 9px; line-height: 1.7; color: #a3b895; margin: 9px 0 0; }
+.recording-hint { border-color: #d4f58080 !important; }
+#finish-recording { pointer-events: auto; padding: 4px 7px; border: none; border-radius: 12px; background: var(--accent); color: #182019; font-size: 9px; white-space: nowrap; }
 .workspace { padding: 24px; gap: 24px; display: grid; grid-template-columns: minmax(0, 1fr) 300px; flex: 1; min-height: 0; max-width: 1920px; width: 100%; margin: 0 auto; }
 .map-card { position: relative; min-height: 0; min-width: 0; overflow: hidden; border-radius: 11px; border: 1px solid var(--line); background: #08151a; isolation: isolate; }
 .map-viewport { position: absolute; inset: 0; touch-action: none; user-select: none; -webkit-user-select: none; cursor: crosshair; overflow: hidden; background-image: radial-gradient(#a2bec511 .7px, transparent .7px); background-size: 12px 12px; outline-offset: -3px !important; }
@@ -153,6 +188,8 @@ dialog h2 { font-size: 23px; font-weight: 500; margin: 10px 0 8px; }
   .brand-icon .icon { width: 23px; height: 23px; }
   .brand-sub { font-size: 9px; margin-top: 5px; letter-spacing: 1px; }
   .header-actions { gap: 12px; }
+  .vehicle-toolbar-button { width: 36px; min-height: 38px; padding: 0; }
+  .vehicle-toolbar-button > span { display: none; }
   .offline-badge { gap: 6px; font-size: 10px; min-height: 44px; }
   .install-button { display: none; }
   .help-button { display: grid !important; width: 32px; }

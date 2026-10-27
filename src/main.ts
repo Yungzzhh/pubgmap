@@ -6,6 +6,9 @@ import { icon } from './icons.ts';
 import { prepareOffline } from './offline.ts';
 import type { OfflineStatus } from './offline.ts';
 import { MAPS, MapSessions, getMap, mapGrid } from './maps.ts';
+import { vehicleDataset } from './vehicle-data.ts';
+import { readVehicleStore, writeVehicleStore, addVehiclePoint, removeLastVehiclePoint, filterVehiclePoints, visibleVehiclePoints } from './vehicles.ts';
+import type { VehicleStore, VehicleKind, SpawnCertainty } from './vehicles.ts';
 
 const $ = <T extends Element = HTMLElement>(selector: string): T => document.querySelector<T>(selector)!;
 const desktopMode = import.meta.env.MODE === 'desktop';
@@ -14,12 +17,13 @@ $('#app').innerHTML = `
   <header class="topbar">
     <a class="brand" href="./" aria-label="PUBG 测距首页"><span class="brand-icon">${icon('target')}</span><span>PUBG MAP<span class="brand-sub">离线测距</span></span></a>
     <div class="header-divider"></div><span class="header-caption">让每一次瞄准，更有把握。</span>
-    <div class="header-actions"><button class="offline-badge" id="offline-badge" aria-label="查看离线缓存状态"><span class="status-dot"></span><span id="offline-label">正在缓存</span></button><button class="install-button" id="install-button">${icon('download')}<span>安装到手机</span></button><button class="icon-button help-button" id="help-button" aria-label="使用与安装说明">${icon('info')}</button></div>
+    <div class="header-actions"><button class="vehicle-toolbar-button" id="vehicle-settings" aria-label="载具点位设置" aria-expanded="false">${icon('car')}<span>载具点位</span></button><button class="offline-badge" id="offline-badge" aria-label="查看离线缓存状态"><span class="status-dot"></span><span id="offline-label">正在缓存</span></button><button class="install-button" id="install-button">${icon('download')}<span>安装到手机</span></button><button class="icon-button help-button" id="help-button" aria-label="使用与安装说明">${icon('info')}</button></div>
   </header>
   <main class="workspace">
     <section class="map-card" aria-label="艾伦格地图">
       <div id="map-viewport" class="map-viewport" role="application" aria-label="艾伦格交互地图：轻点设置炮位，再轻点设置目标；单指拖动，双指缩放" tabindex="0">
         <div id="map-world" class="map-world"><img id="map-image" src="./maps/erangel.webp" alt="PUBG 艾伦格完整地图" width="8192" height="8192" draggable="false" fetchpriority="high" /><svg id="grid-overlay" class="grid-overlay" viewBox="0 0 8192 8192" aria-hidden="true"></svg></div>
+        <svg class="vehicle-overlay" id="vehicle-markers" aria-hidden="true"></svg>
         <svg class="measurement-overlay" id="measurement-overlay" aria-hidden="true"><line id="range-line"/><circle id="range-ring"/></svg>
         <div class="map-marker marker-origin" id="origin-marker" hidden><span class="marker-label">炮位 A</span><span class="marker-ring"><i></i></span></div>
         <div class="map-marker marker-target" id="target-marker" hidden><span class="marker-label">目标 B</span><span class="marker-ring"><i></i></span></div>
@@ -30,7 +34,17 @@ $('#app').innerHTML = `
       <div class="map-controls"><div class="zoom-control"><button class="icon-button" id="zoom-in" aria-label="放大地图">${icon('plus')}</button><span id="zoom-level">1.0×</span><button class="icon-button" id="zoom-out" aria-label="缩小地图">${icon('minus')}</button></div><button class="icon-button control-single" id="fit-map" aria-label="查看完整地图" title="查看完整地图">${icon('fit')}</button><button class="icon-button control-single" id="toggle-grid" aria-label="显示一公里网格" aria-pressed="false" title="一公里网格">${icon('grid')}</button></div>
       <div class="map-scale"><span id="scale-label">1 km</span><div id="scale-bar"></div></div>
       <div class="map-source">PUBG ORIGINAL MAP<span id="map-source-name">ERANGEL · NORTH UP</span></div>
-      <div class="map-hint" id="map-hint">${icon('target')}<span id="hint-text">轻点地图，设置迫击炮位置</span></div>
+      <section class="vehicle-panel" id="vehicle-panel" aria-label="载具点位设置面板" hidden>
+        <div class="vehicle-panel-heading"><strong>载具刷新点</strong><button class="icon-button" id="close-vehicles" aria-label="关闭载具设置">${icon('close')}</button></div>
+        <label class="vehicle-visibility"><input type="checkbox" id="vehicle-visible" checked />显示载具点位<span id="vehicle-total"></span></label>
+        <div class="vehicle-filters"><label class="vehicle-car"><input type="checkbox" id="vehicle-cars" checked />${icon('car')}汽车</label><label class="vehicle-aircraft"><input type="checkbox" id="vehicle-aircraft" checked />${icon('plane')}飞机</label><label><input type="checkbox" id="vehicle-fixed" checked /><i class="spawn-dot fixed"></i>固定点</label><label><input type="checkbox" id="vehicle-possible" checked /><i class="spawn-dot"></i>可能点</label></div>
+        <p class="vehicle-scope" id="vehicle-coverage"></p>
+        <p class="vehicle-source">社区参考资料 · 2025-12 快照<br>飞机为动力滑翔机；固定类型按资料标注，受模式及版本影响，不代表本局实时载具状态。</p>
+        <div class="vehicle-record-options"><label>记录载具<select id="record-vehicle-kind" aria-label="记录载具类型"><option value="car">汽车</option><option value="aircraft">飞机</option></select></label><label>刷新类型<select id="record-vehicle-certainty" aria-label="记录刷新类型"><option value="possible">随机可能</option><option value="fixed">固定刷新</option></select></label></div>
+        <div class="vehicle-record-buttons"><button id="record-vehicle" class="primary-button">记录点位</button><button id="undo-vehicle" class="secondary-button" disabled>撤销最后自记点</button></div>
+        <p class="vehicle-status" id="vehicle-status" role="status">自记点自动保存在本机，重置测距不会删除。</p>
+      </section>
+      <div class="map-hint" id="map-hint">${icon('target')}<span id="hint-text">轻点地图，设置迫击炮位置</span><button id="finish-recording" hidden>结束记录</button></div>
       <div class="map-loading" id="map-loading"><span class="loading-cross">${icon('target')}</span><span id="map-loading-text">正在展开艾伦格地图…</span><button id="retry-map" class="secondary-button" hidden>重新加载地图</button></div>
     </section>
     <aside class="measurement-panel">
@@ -59,8 +73,12 @@ if (desktopMode) {
   $('.install-steps').innerHTML = '<li><span>01</span><div><strong>选择战场</strong><p id="cache-description">从左上角切换六张内置地图。</p></div></li><li><span>02</span><div><strong>点击两次，即可测距</strong><p>先选炮位，再选目标；按住拖动地图，滚轮或双指缩放。重置定点保留当前视角。</p></div></li><li><span>03</span><div><strong>随程序一起带走</strong><p>上次选择的地图保存在程序旁的 data 文件夹。移动或更新应用时，请一同保留这个文件夹。</p></div></li>';
   $('#help-dialog a').replaceWith(document.createTextNode('PUBG 官方 API 素材'));
   $('.quick-guide p:nth-of-type(2) span').textContent = '按住拖动地图，滚轮或双指缩放';
-  $('.panel-footer > span:last-child').textContent = 'v1.2 桌面版';
+  $('.panel-footer > span:last-child').textContent = 'v1.3 桌面版';
 }
+
+const vehicleHelp = document.createElement('p');
+vehicleHelp.textContent = '载具点位：汽车与飞机用不同图标，实心为固定点、空心为可能点。可在“载具点位”中筛选或进入记录模式，点击地图补记；结束记录后恢复测距。自记点与筛选保存在本机，Reset 不会删除。预置资料来自 KampfKarten（MIT，2025-12 快照），部分地图覆盖不完整。';
+$('.dialog-notes').append(vehicleHelp);
 
 const viewport = $('#map-viewport');
 let dimensions = { width: viewport.clientWidth, height: viewport.clientHeight };
@@ -72,6 +90,54 @@ let state: Measurement = sessions.open(activeMap.id, dimensions);
 let mapLoaded = false;
 const image = $<HTMLImageElement>('#map-image');
 let gridEnabled = false;
+const vehicleStorageKey = 'pubgmap.vehicle-spawns.v1';
+let vehicleState: VehicleStore;
+try { vehicleState = readVehicleStore(localStorage.getItem(vehicleStorageKey)); }
+catch { vehicleState = { ...readVehicleStore(null), readOnly: true }; }
+let recordingVehicle: { kind: VehicleKind; certainty: SpawnCertainty } | null = null;
+
+function renderVehicleLayer(): void {
+  const points = filterVehiclePoints([...vehicleDataset.points, ...vehicleState.points], activeMap.id, vehicleState.filters);
+  $('#vehicle-markers').innerHTML = visibleVehiclePoints(points, state.view, dimensions).map(point => `<g class="vehicle-point vehicle-${point.kind} vehicle-${point.certainty}${point.source === 'user' ? ' vehicle-user' : ''}" data-point-id="${point.id}" data-kind="${point.kind}" data-certainty="${point.certainty}" data-source="${point.source}" transform="translate(${point.screen.x} ${point.screen.y})"><circle r="10"/><g transform="translate(-7 -7)">${icon(point.kind === 'car' ? 'car' : 'plane', 'vehicle-glyph', 14)}</g>${point.source === 'user' ? '<circle class="user-point-dot" cx="8" cy="-8" r="2.5"/>' : ''}</g>`).join('');
+}
+
+function renderVehiclePanel(): void {
+  const builtin = vehicleDataset.points.filter(point => point.mapId === activeMap.id);
+  const user = vehicleState.points.filter(point => point.mapId === activeMap.id);
+  $('#vehicle-total').textContent = `${builtin.length + user.length} 点`;
+  const cars = builtin.filter(point => point.kind === 'car').length, aircraft = builtin.filter(point => point.kind === 'aircraft').length;
+  $('#vehicle-coverage').textContent = builtin.length ? `预置：汽车 ${cars} · 飞机 ${aircraft}；自记 ${user.length}。${cars === 0 ? '本图暂无汽车预置资料，可自行补记。' : '预置点为部分参考点，不是完整刷新清单。'}` : `暂无可靠预置资料；自记 ${user.length} 点，可在地图上补记。`;
+  for (const [key, selector] of [['visible', '#vehicle-visible'], ['car', '#vehicle-cars'], ['aircraft', '#vehicle-aircraft'], ['fixed', '#vehicle-fixed'], ['possible', '#vehicle-possible']] as const) $<HTMLInputElement>(selector).checked = vehicleState.filters[key];
+  $<HTMLButtonElement>('#record-vehicle').disabled = vehicleState.readOnly || !mapLoaded;
+  $<HTMLButtonElement>('#undo-vehicle').disabled = vehicleState.readOnly || user.length === 0;
+  $('#vehicle-settings').classList.toggle('layer-active', vehicleState.filters.visible);
+  $('#vehicle-settings').classList.toggle('is-recording', !!recordingVehicle);
+  if (vehicleState.readOnly) $('#vehicle-status').textContent = '本地记录无法读取，原数据已保留。预置点仍可查看。';
+}
+
+function saveVehicleState(next: VehicleStore): boolean {
+  try {
+    localStorage.setItem(vehicleStorageKey, writeVehicleStore(next));
+    vehicleState = next;
+    $('#vehicle-status').textContent = '已保存到本机；Reset 不会删除载具点。';
+    renderVehiclePanel(); renderVehicleLayer();
+    return true;
+  } catch { $('#vehicle-status').textContent = '保存未成功，原记录已保留。'; return false; }
+}
+
+function setVehiclePanel(open: boolean): void {
+  $('#vehicle-panel').hidden = !open;
+  $('#vehicle-settings').setAttribute('aria-expanded', String(open));
+  if (open) renderVehiclePanel();
+}
+
+function updateMapHint(): void {
+  $('#finish-recording').hidden = !recordingVehicle;
+  $('#map-hint').classList.toggle('recording-hint', !!recordingVehicle);
+  $('#hint-text').textContent = recordingVehicle ? `记录${recordingVehicle.kind === 'car' ? '汽车' : '飞机'}${recordingVehicle.certainty === 'fixed' ? '固定点' : '可能点'}：点击地图添加` : !state.origin ? '轻点地图，设置迫击炮位置' : !state.target ? '再次轻点，选择目标位置' : desktopMode ? '点击更换目标 · 滚轮缩放地图' : '轻点更换目标 · 双指缩放地图';
+}
+
+function finishRecording(): void { recordingVehicle = null; renderVehiclePanel(); updateMapHint(); }
 
 function renderMapMetadata(): void {
   $<HTMLSelectElement>('#map-select').value = activeMap.id;
@@ -87,6 +153,7 @@ function renderMapMetadata(): void {
 }
 
 function renderView(): void {
+  renderVehicleLayer();
   const view = state.view;
   const zoom = view.size / fitView(dimensions).size;
   const world = $('#map-world');
@@ -137,7 +204,7 @@ function renderMeasurement(): void {
   $('#origin-detail').textContent = state.origin ? '炮位已固定' : '轻点地图设置炮位';
   $('#target-detail').textContent = state.target ? '轻点地图可更换目标' : '再次轻点，计算距离';
   $<HTMLButtonElement>('#reset-points').disabled = !state.origin;
-  $('#hint-text').textContent = !state.origin ? '轻点地图，设置迫击炮位置' : !state.target ? '再次轻点，选择目标位置' : desktopMode ? '点击更换目标 · 滚轮缩放地图' : '轻点更换目标 · 双指缩放地图';
+  updateMapHint();
   const indicator = $('#range-position');
   indicator.hidden = distance === null;
   if (distance !== null) indicator.style.left = `${Math.max(0, Math.min(100, (distance - 121) / (700 - 121) * 100))}%`;
@@ -154,7 +221,12 @@ const gesture = new MapGesture({
   onTap: point => {
     if (!mapLoaded) return;
     const position = screenToMap(point, state.view);
-    if (position) { state = selectPoint(state, position); renderMeasurement(); }
+    if (position && recordingVehicle) {
+      try {
+        const next = addVehiclePoint(vehicleState, { id: `user-${crypto.randomUUID()}`, mapId: activeMap.id, kind: recordingVehicle.kind, certainty: recordingVehicle.certainty, position, source: 'user' });
+        if (saveVehicleState(next)) updateMapHint();
+      } catch { setVehiclePanel(true); $('#vehicle-status').textContent = '未能新增点位，原记录已保留。'; }
+    } else if (position) { state = selectPoint(state, position); renderMeasurement(); }
   },
 });
 viewport.addEventListener('pointerdown', event => { if (event.pointerType === 'mouse' && event.button !== 0) return; viewport.setPointerCapture(event.pointerId); gesture.down(event.pointerId, localPoint(event)); viewport.classList.add('is-touching'); });
@@ -173,6 +245,24 @@ $('#zoom-out').addEventListener('click', () => zoom(1 / 1.5));
 $('#fit-map').addEventListener('click', () => setView(fitView(dimensions)));
 $('#toggle-grid').addEventListener('click', () => { gridEnabled = !gridEnabled; $('#toggle-grid').setAttribute('aria-pressed', String(gridEnabled)); renderView(); });
 $('#reset-points').addEventListener('click', () => { state = resetPoints(state); renderMeasurement(); });
+$('#vehicle-settings').addEventListener('click', () => setVehiclePanel($('#vehicle-panel').hasAttribute('hidden')));
+$('#close-vehicles').addEventListener('click', () => setVehiclePanel(false));
+$('#finish-recording').addEventListener('click', finishRecording);
+window.addEventListener('keydown', event => { if (event.key === 'Escape') { finishRecording(); setVehiclePanel(false); } });
+for (const [key, selector] of [['visible', '#vehicle-visible'], ['car', '#vehicle-cars'], ['aircraft', '#vehicle-aircraft'], ['fixed', '#vehicle-fixed'], ['possible', '#vehicle-possible']] as const) $(selector).addEventListener('change', () => {
+  const next = { ...vehicleState, filters: { ...vehicleState.filters, [key]: $<HTMLInputElement>(selector).checked } };
+  if (recordingVehicle && (!next.filters.visible || !next.filters[recordingVehicle.kind] || !next.filters[recordingVehicle.certainty])) finishRecording();
+  if (vehicleState.readOnly) { vehicleState = next; renderVehicleLayer(); renderVehiclePanel(); }
+  else saveVehicleState(next);
+});
+$('#record-vehicle').addEventListener('click', () => {
+  const kind = $<HTMLSelectElement>('#record-vehicle-kind').value as VehicleKind;
+  const certainty = $<HTMLSelectElement>('#record-vehicle-certainty').value as SpawnCertainty;
+  if (!saveVehicleState({ ...vehicleState, filters: { ...vehicleState.filters, visible: true, [kind]: true, [certainty]: true } })) return;
+  recordingVehicle = { kind, certainty };
+  setVehiclePanel(false); renderVehiclePanel(); updateMapHint();
+});
+$('#undo-vehicle').addEventListener('click', () => { saveVehicleState(removeLastVehiclePoint(vehicleState, activeMap.id)); });
 
 new ResizeObserver(() => {
   const next = { width: viewport.clientWidth, height: viewport.clientHeight };
@@ -184,13 +274,14 @@ new ResizeObserver(() => {
 
 const onMapLoad = () => {
   if (!image.complete || !image.naturalWidth || new URL(image.currentSrc).pathname !== new URL(activeMap.image, location.href).pathname) return;
-  mapLoaded = true; $('#map-loading').hidden = true;
+  mapLoaded = true; $('#map-loading').hidden = true; renderVehiclePanel();
 };
 image.addEventListener('load', onMapLoad);
 image.addEventListener('error', () => { mapLoaded = false; $('#map-loading').hidden = false; $('#map-loading-text').textContent = desktopMode ? '本地地图读取失败，请重新解压完整应用包' : '地图加载失败，请联网重试'; $('#retry-map').hidden = false; });
 if (image.complete && image.naturalWidth > 0) onMapLoad();
 function loadMap(): void {
   mapLoaded = false;
+  renderVehiclePanel();
   $('#map-loading').hidden = false;
   $('#map-loading-text').textContent = `正在展开${activeMap.name}地图…`;
   $('#retry-map').hidden = true;
@@ -202,6 +293,7 @@ $('#map-select').addEventListener('change', event => {
   const next = getMap((event.target as HTMLSelectElement).value);
   if (next.id === activeMap.id) return;
   sessions.save(activeMap.id, state, dimensions);
+  finishRecording();
   gesture.clear();
   viewport.classList.remove('is-touching');
   activeMap = next;
@@ -209,6 +301,7 @@ $('#map-select').addEventListener('change', event => {
   try { localStorage.setItem('pubgmap.selected-map', activeMap.id); } catch { /* Keep working without storage. */ }
   renderMapMetadata();
   renderMeasurement();
+  renderVehiclePanel();
   loadMap();
 });
 
@@ -246,5 +339,6 @@ window.addEventListener('online', renderOffline);
 window.addEventListener('offline', renderOffline);
 renderMapMetadata();
 renderMeasurement();
+renderVehiclePanel();
 loadMap();
 startOffline();

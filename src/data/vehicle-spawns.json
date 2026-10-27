@@ -1,0 +1,3165 @@
+{
+  "schema": 1,
+  "source": {
+    "name": "KampfKarten 社区资料",
+    "url": "https://github.com/JanJastrow/KampfKarten",
+    "tree": "4b8785fb9e65e8e8028b01d78008fdb684b38617",
+    "snapshot": "2025-12",
+    "checkedAt": "2026-10-27",
+    "license": "MIT",
+    "copyright": "Copyright (c) 2025 Jan Jastrow",
+    "transform": "source latitude grid 8192 -> EPSG:3857 normalized raster",
+    "files": [
+      {
+        "mapId": "erangel",
+        "path": "maps/objects_erangel.json",
+        "gitBlob": "c840a1e42f82b7f546904eda80970977ca4d5e5c",
+        "sha256": "1b60671d78160d46716d366819367d26b24ae60370db5aadaa0bc541e3b790e8"
+      },
+      {
+        "mapId": "miramar",
+        "path": "maps/objects_miramar.json",
+        "gitBlob": "d86d1de38d7d827dbd94552bebf59513825d8552",
+        "sha256": "91af7f1985c9c38a23f3e03ff1361ae31e7937802daf375f6ffc89a482560dfa"
+      },
+      {
+        "mapId": "vikendi",
+        "path": "maps/objects_vikendi.json",
+        "gitBlob": "ad803c6de7ff99ac66fa841663158b4bb35bf9bf",
+        "sha256": "e4e2f448b0b44712f40a5aae3e31c3d09f1f890e686ac9d4849e9932b0e4eeb7"
+      },
+      {
+        "mapId": "taego",
+        "path": "maps/objects_taego.json",
+        "gitBlob": "03762169b4767636c0359b0407b3ce53ac3e954c",
+        "sha256": "284ab7a5af168e3d868e234cec1f4366ee5acc295970f27e7fd12c0294890429"
+      },
+      {
+        "mapId": "deston",
+        "path": "maps/objects_deston.json",
+        "gitBlob": "e3722b4ac8829aa43e5b0ac4eacc25c084be7559",
+        "sha256": "3ef3e92546a6146712ee9d2c9a11c84af8d79146435f8f5775a3237362ae600d"
+      }
+    ],
+    "removedExactDuplicates": 1,
+    "skippedIncomplete": [
+      {
+        "mapId": "erangel",
+        "reference": "A116",
+        "reason": "invalid-coordinates"
+      }
+    ]
+  },
+  "coverage": [
+    {
+      "mapId": "erangel",
+      "status": "partial"
+    },
+    {
+      "mapId": "miramar",
+      "status": "partial"
+    },
+    {
+      "mapId": "sanhok",
+      "status": "none"
+    },
+    {
+      "mapId": "vikendi",
+      "status": "partial"
+    },
+    {
+      "mapId": "taego",
+      "status": "partial"
+    },
+    {
+      "mapId": "deston",
+      "status": "partial"
+    }
+  ],
+  "points": [
+    {
+      "id": "kk-daa6ad4fd561ddbbc13e",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.110107421875,
+        "y": 0.18942016976678766
+      },
+      "source": "builtin",
+      "reference": "G101"
+    },
+    {
+      "id": "kk-802f4dbea50a9d74fbe7",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.32958984375,
+        "y": 0.3641696302011974
+      },
+      "source": "builtin",
+      "reference": "G102"
+    },
+    {
+      "id": "kk-bc042ecb8313b8229afc",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.130615234375,
+        "y": 0.39993764429560086
+      },
+      "source": "builtin",
+      "reference": "G103"
+    },
+    {
+      "id": "kk-936d1abbfe7b2fc63ee5",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.1300048828125,
+        "y": 0.4496826156143376
+      },
+      "source": "builtin",
+      "reference": "G103"
+    },
+    {
+      "id": "kk-992b512964d03d05d1c4",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.191650390625,
+        "y": 0.4086272933720676
+      },
+      "source": "builtin",
+      "reference": "G104"
+    },
+    {
+      "id": "kk-a3c578839d172e4e41ef",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2109375,
+        "y": 0.23992477208889157
+      },
+      "source": "builtin",
+      "reference": "G106"
+    },
+    {
+      "id": "kk-1400c64b33682a009ee3",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.293212890625,
+        "y": 0.17039615988050277
+      },
+      "source": "builtin",
+      "reference": "G107"
+    },
+    {
+      "id": "kk-ec291bd3a61b26bb3009",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3516845703125,
+        "y": 0.15027350123513167
+      },
+      "source": "builtin",
+      "reference": "G108"
+    },
+    {
+      "id": "kk-3ae2be91dff7db835b70",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.4266357421875,
+        "y": 0.13815369864745408
+      },
+      "source": "builtin",
+      "reference": "G109"
+    },
+    {
+      "id": "kk-87a5deedefe3f1c20e3a",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.428466796875,
+        "y": 0.1956565602632252
+      },
+      "source": "builtin",
+      "reference": "G110"
+    },
+    {
+      "id": "kk-7e61233b66155152d129",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.5284423828125,
+        "y": 0.1351299100966774
+      },
+      "source": "builtin",
+      "reference": "G111"
+    },
+    {
+      "id": "kk-42fc5bfeaa5cd28ebe57",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.6678466796875,
+        "y": 0.059937012612218565
+      },
+      "source": "builtin",
+      "reference": "G112"
+    },
+    {
+      "id": "kk-fe9a1a645b4cb1aa7710",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.779541015625,
+        "y": 0.06660756378453109
+      },
+      "source": "builtin",
+      "reference": "G113"
+    },
+    {
+      "id": "kk-e23dba9bd2a20adfae2a",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8056640625,
+        "y": 0.15841021513606407
+      },
+      "source": "builtin",
+      "reference": "G114"
+    },
+    {
+      "id": "kk-0459c71e99696c733189",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.780517578125,
+        "y": 0.21307677029007122
+      },
+      "source": "builtin",
+      "reference": "G115"
+    },
+    {
+      "id": "kk-d694ebd9762c9bdaa14d",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8428955078125,
+        "y": 0.2356507904905954
+      },
+      "source": "builtin",
+      "reference": "G116"
+    },
+    {
+      "id": "kk-76dd17ace3d9697a6b2a",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8304443359375,
+        "y": 0.27706577696393364
+      },
+      "source": "builtin",
+      "reference": "G117"
+    },
+    {
+      "id": "kk-7312940d760574d2663b",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8460693359375,
+        "y": 0.32838036759847944
+      },
+      "source": "builtin",
+      "reference": "G118"
+    },
+    {
+      "id": "kk-3c984e1ba9ebef6a76eb",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8336181640625,
+        "y": 0.5100163711898869
+      },
+      "source": "builtin",
+      "reference": "G119"
+    },
+    {
+      "id": "kk-2d8ad0e14fc0f287c7be",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.9071044921875,
+        "y": 0.4971311923183188
+      },
+      "source": "builtin",
+      "reference": "G120"
+    },
+    {
+      "id": "kk-b499163591a14af8c403",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.9219970703125,
+        "y": 0.557875551436793
+      },
+      "source": "builtin",
+      "reference": "G121"
+    },
+    {
+      "id": "kk-ee3a638b9c7d3f425e74",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8514404296875,
+        "y": 0.5869083728574986
+      },
+      "source": "builtin",
+      "reference": "G122"
+    },
+    {
+      "id": "kk-df80547f5ff0adea9dab",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8282470703125,
+        "y": 0.6169636006222509
+      },
+      "source": "builtin",
+      "reference": "G123"
+    },
+    {
+      "id": "kk-3b318c4ff84311b48b53",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.70068359375,
+        "y": 0.7597508288790249
+      },
+      "source": "builtin",
+      "reference": "G124"
+    },
+    {
+      "id": "kk-fa7006a7cbdeb749b631",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.671630859375,
+        "y": 0.766190054112958
+      },
+      "source": "builtin",
+      "reference": "G125"
+    },
+    {
+      "id": "kk-d0a9f34e8ea33e663634",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.654052734375,
+        "y": 0.8205144425351607
+      },
+      "source": "builtin",
+      "reference": "G126"
+    },
+    {
+      "id": "kk-e099dd67419f483cce70",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.511962890625,
+        "y": 0.8597626269830785
+      },
+      "source": "builtin",
+      "reference": "G127"
+    },
+    {
+      "id": "kk-473ac2c72f88cd1c03a8",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3863525390625,
+        "y": 0.8338387315880653
+      },
+      "source": "builtin",
+      "reference": "G128"
+    },
+    {
+      "id": "kk-b800fea9c2f6c3fbb500",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.444580078125,
+        "y": 0.7798476933245897
+      },
+      "source": "builtin",
+      "reference": "G129"
+    },
+    {
+      "id": "kk-5645051409a228810f3c",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.510498046875,
+        "y": 0.8274052747110476
+      },
+      "source": "builtin",
+      "reference": "G130"
+    },
+    {
+      "id": "kk-d97138279dc4e2de671f",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.514404296875,
+        "y": 0.8056146499476033
+      },
+      "source": "builtin",
+      "reference": "G131"
+    },
+    {
+      "id": "kk-6ddaa9e72069771a6845",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.609130859375,
+        "y": 0.8056146499476033
+      },
+      "source": "builtin",
+      "reference": "G132"
+    },
+    {
+      "id": "kk-9b7df161d4110432eae5",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.345703125,
+        "y": 0.6731266999546875
+      },
+      "source": "builtin",
+      "reference": "G133"
+    },
+    {
+      "id": "kk-a67f712e8e0a4be55802",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.322998046875,
+        "y": 0.7048207470731682
+      },
+      "source": "builtin",
+      "reference": "G134"
+    },
+    {
+      "id": "kk-60a7c4f3558c6a2f4a72",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.248779296875,
+        "y": 0.6484508490570858
+      },
+      "source": "builtin",
+      "reference": "G135"
+    },
+    {
+      "id": "kk-c5dfd87c452febea87f6",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.232666015625,
+        "y": 0.6980463465844762
+      },
+      "source": "builtin",
+      "reference": "G136"
+    },
+    {
+      "id": "kk-b843541529099c6ad896",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.15087890625,
+        "y": 0.6918403708295
+      },
+      "source": "builtin",
+      "reference": "G137"
+    },
+    {
+      "id": "kk-5fc870cc0ec70c0ecd15",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.112548828125,
+        "y": 0.6130024709343139
+      },
+      "source": "builtin",
+      "reference": "G138"
+    },
+    {
+      "id": "kk-461a96f2ea9a91915c17",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.41064453125,
+        "y": 0.30366649749328706
+      },
+      "source": "builtin",
+      "reference": "G139"
+    },
+    {
+      "id": "kk-f6d87b7a445b8496129f",
+      "mapId": "erangel",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.203857421875,
+        "y": 0.1867693763522822
+      },
+      "source": "builtin",
+      "reference": "G140"
+    },
+    {
+      "id": "kk-1d16a74e3c3592498bc7",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.206298828125,
+        "y": 0.41428558163121065
+      },
+      "source": "builtin",
+      "reference": "C101"
+    },
+    {
+      "id": "kk-e015704f6d34a4aeccd0",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2808837890625,
+        "y": 0.3042340042668355
+      },
+      "source": "builtin",
+      "reference": "C102"
+    },
+    {
+      "id": "kk-356ccdfa180062d4eb88",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3004150390625,
+        "y": 0.341838746889937
+      },
+      "source": "builtin",
+      "reference": "C103"
+    },
+    {
+      "id": "kk-78e0e550addb3ba30e77",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.5006103515625,
+        "y": 0.3691106267268448
+      },
+      "source": "builtin",
+      "reference": "C104"
+    },
+    {
+      "id": "kk-f2117ef6797aaed1cf1c",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.4415283203125,
+        "y": 0.3613591234102119
+      },
+      "source": "builtin",
+      "reference": "C105"
+    },
+    {
+      "id": "kk-bde882e67d81f5a7205c",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.6993408203125,
+        "y": 0.053484298719386036
+      },
+      "source": "builtin",
+      "reference": "C106"
+    },
+    {
+      "id": "kk-740e903bb731f5fbe116",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.7755126953125,
+        "y": 0.3344928284121682
+      },
+      "source": "builtin",
+      "reference": "C107"
+    },
+    {
+      "id": "kk-7c21c91d6318a80fa9f9",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8697509765625,
+        "y": 0.4043143700953854
+      },
+      "source": "builtin",
+      "reference": "C108"
+    },
+    {
+      "id": "kk-bd4708766a2f2fdcd3b5",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.740478515625,
+        "y": 0.5888846775385834
+      },
+      "source": "builtin",
+      "reference": "C109"
+    },
+    {
+      "id": "kk-19307a04b6a0e3de41cc",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.64013671875,
+        "y": 0.29906373719520435
+      },
+      "source": "builtin",
+      "reference": "C110"
+    },
+    {
+      "id": "kk-f695a95c36cd550be45f",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.43212890625,
+        "y": 0.4975584979966026
+      },
+      "source": "builtin",
+      "reference": "C111"
+    },
+    {
+      "id": "kk-75440ede7315343c3b39",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.54248046875,
+        "y": 0.3664438100314934
+      },
+      "source": "builtin",
+      "reference": "C112"
+    },
+    {
+      "id": "kk-40f31c36bdcf0a8e1d7e",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.567626953125,
+        "y": 0.3869975290656861
+      },
+      "source": "builtin",
+      "reference": "C113"
+    },
+    {
+      "id": "kk-4dd12039d0c6112fc6fa",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.704833984375,
+        "y": 0.7289454057693816
+      },
+      "source": "builtin",
+      "reference": "C114"
+    },
+    {
+      "id": "kk-a475c988dc789c26c7fe",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.738525390625,
+        "y": 0.744113820642734
+      },
+      "source": "builtin",
+      "reference": "C115"
+    },
+    {
+      "id": "kk-25b3f7a6c275439fa109",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.741455078125,
+        "y": 0.75417064279124
+      },
+      "source": "builtin",
+      "reference": "C116"
+    },
+    {
+      "id": "kk-65f9be065281dfa7f523",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.699462890625,
+        "y": 0.053484298719386036
+      },
+      "source": "builtin",
+      "reference": "C117"
+    },
+    {
+      "id": "kk-8e52465c6641e46e1362",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.501708984375,
+        "y": 0.4242991112002823
+      },
+      "source": "builtin",
+      "reference": "A101"
+    },
+    {
+      "id": "kk-04d5c4a1b1ad36ffcedf",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.6402587890625,
+        "y": 0.46361537251824403
+      },
+      "source": "builtin",
+      "reference": "A102"
+    },
+    {
+      "id": "kk-a83936b083ad9e40fad0",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.5499267578125,
+        "y": 0.3809141704083653
+      },
+      "source": "builtin",
+      "reference": "A103"
+    },
+    {
+      "id": "kk-47ccaadf4f3d7761141b",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.38818359375,
+        "y": 0.41146914093084314
+      },
+      "source": "builtin",
+      "reference": "A104"
+    },
+    {
+      "id": "kk-c023bf0bd926b84d15a4",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4656982421875,
+        "y": 0.36877893107027904
+      },
+      "source": "builtin",
+      "reference": "A105"
+    },
+    {
+      "id": "kk-f25f91338a74468766e6",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4522705078125,
+        "y": 0.5097106091157826
+      },
+      "source": "builtin",
+      "reference": "A106"
+    },
+    {
+      "id": "kk-cffa0497ba9d0bcb3767",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.531005859375,
+        "y": 0.570161099526478
+      },
+      "source": "builtin",
+      "reference": "A107"
+    },
+    {
+      "id": "kk-fcb23a8f9104b5956fc1",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.6280517578125,
+        "y": 0.56219397301807
+      },
+      "source": "builtin",
+      "reference": "A108"
+    },
+    {
+      "id": "kk-6e075b74b083fadd8cae",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.7135009765625,
+        "y": 0.5803602748160547
+      },
+      "source": "builtin",
+      "reference": "A109"
+    },
+    {
+      "id": "kk-12f9ef980a6d8f0fae26",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.8538818359375,
+        "y": 0.5755647735984792
+      },
+      "source": "builtin",
+      "reference": "A110"
+    },
+    {
+      "id": "kk-68455e3ece8312fed012",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.792236328125,
+        "y": 0.5143014341021809
+      },
+      "source": "builtin",
+      "reference": "A111"
+    },
+    {
+      "id": "kk-8a53d75c78f4147ea984",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.8441162109375,
+        "y": 0.401769303931494
+      },
+      "source": "builtin",
+      "reference": "A112"
+    },
+    {
+      "id": "kk-dd4f486274aa54e71fce",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.7427978515625,
+        "y": 0.3196852434433345
+      },
+      "source": "builtin",
+      "reference": "A113"
+    },
+    {
+      "id": "kk-c34e08e397ad25502de9",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.66162109375,
+        "y": 0.2939859172086996
+      },
+      "source": "builtin",
+      "reference": "A114"
+    },
+    {
+      "id": "kk-e2ea43ff17c247514d35",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.6024169921875,
+        "y": 0.22989553215981873
+      },
+      "source": "builtin",
+      "reference": "A115"
+    },
+    {
+      "id": "kk-e2890ba25779bba53bdc",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.46142578125,
+        "y": 0.15788019270653703
+      },
+      "source": "builtin",
+      "reference": "A117"
+    },
+    {
+      "id": "kk-4448ef90daff073978fe",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.5633544921875,
+        "y": 0.11910318404038417
+      },
+      "source": "builtin",
+      "reference": "A118"
+    },
+    {
+      "id": "kk-7e8826786a3d20786775",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.3594970703125,
+        "y": 0.16565578388201702
+      },
+      "source": "builtin",
+      "reference": "A119"
+    },
+    {
+      "id": "kk-a5627c8a6199bb147519",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.2166748046875,
+        "y": 0.18699190396842097
+      },
+      "source": "builtin",
+      "reference": "A120"
+    },
+    {
+      "id": "kk-1766a755850301332de3",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.130615234375,
+        "y": 0.17186513264144138
+      },
+      "source": "builtin",
+      "reference": "A121"
+    },
+    {
+      "id": "kk-5d2d06bebf9ad8dfdf6b",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.3143310546875,
+        "y": 0.3089351188071006
+      },
+      "source": "builtin",
+      "reference": "A122"
+    },
+    {
+      "id": "kk-375fab628eee508d01fd",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.1708984375,
+        "y": 0.3577309184117245
+      },
+      "source": "builtin",
+      "reference": "A123"
+    },
+    {
+      "id": "kk-1d13cea54a9cb78fd723",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.203857421875,
+        "y": 0.4222511288381152
+      },
+      "source": "builtin",
+      "reference": "A124"
+    },
+    {
+      "id": "kk-5d60f92f20686b2c75a4",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.2587890625,
+        "y": 0.4800505031871546
+      },
+      "source": "builtin",
+      "reference": "A125"
+    },
+    {
+      "id": "kk-607ceb19099133918d37",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.118408203125,
+        "y": 0.543817193681076
+      },
+      "source": "builtin",
+      "reference": "A126"
+    },
+    {
+      "id": "kk-241ca70f4318011703b2",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.211181640625,
+        "y": 0.562522874531834
+      },
+      "source": "builtin",
+      "reference": "A127"
+    },
+    {
+      "id": "kk-82f480e5f643f9143b4f",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.3326416015625,
+        "y": 0.5225975182594886
+      },
+      "source": "builtin",
+      "reference": "A128"
+    },
+    {
+      "id": "kk-82f8e9c0a7ec12ea954e",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.1239013671875,
+        "y": 0.6412264584435102
+      },
+      "source": "builtin",
+      "reference": "A129"
+    },
+    {
+      "id": "kk-3840d2263a7a0a866c0d",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.1837158203125,
+        "y": 0.7362957672704415
+      },
+      "source": "builtin",
+      "reference": "A130"
+    },
+    {
+      "id": "kk-875c13837eb3a57dffef",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.3619384765625,
+        "y": 0.6621357710020881
+      },
+      "source": "builtin",
+      "reference": "A131"
+    },
+    {
+      "id": "kk-77b6a5e6aba901fe07a1",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4656982421875,
+        "y": 0.742053215382414
+      },
+      "source": "builtin",
+      "reference": "A132"
+    },
+    {
+      "id": "kk-c73bbd8bcd9e7911658c",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.5450439453125,
+        "y": 0.8018298053016839
+      },
+      "source": "builtin",
+      "reference": "A133"
+    },
+    {
+      "id": "kk-cae99f6bcc01c6dc2e25",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.5462646484375,
+        "y": 0.8688871005485315
+      },
+      "source": "builtin",
+      "reference": "A134"
+    },
+    {
+      "id": "kk-da18986fe885661967b1",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.73974609375,
+        "y": 0.7573371526873611
+      },
+      "source": "builtin",
+      "reference": "A135"
+    },
+    {
+      "id": "kk-e1ec688ac63a080962ac",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.6781005859375,
+        "y": 0.7320978270795615
+      },
+      "source": "builtin",
+      "reference": "A136"
+    },
+    {
+      "id": "kk-46af71da6056ad1fe549",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.816650390625,
+        "y": 0.21364630578181754
+      },
+      "source": "builtin",
+      "reference": "A137"
+    },
+    {
+      "id": "kk-9ec7bd951044d264d990",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.8251953125,
+        "y": 0.11910318404038417
+      },
+      "source": "builtin",
+      "reference": "A138"
+    },
+    {
+      "id": "kk-64a29c1f839977fa218e",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.6842041015625,
+        "y": 0.05599693132540279
+      },
+      "source": "builtin",
+      "reference": "A139"
+    },
+    {
+      "id": "kk-eaa62090b75c853849da",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.6903076171875,
+        "y": 0.16181413318944837
+      },
+      "source": "builtin",
+      "reference": "A140"
+    },
+    {
+      "id": "kk-87f4ad66f04d1d1d002f",
+      "mapId": "erangel",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4364013671875,
+        "y": 0.29577305204220006
+      },
+      "source": "builtin",
+      "reference": "A141"
+    },
+    {
+      "id": "kk-a7038451b32a289795ef",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8382568359375,
+        "y": 0.44459224119364243
+      },
+      "source": "builtin",
+      "reference": "G201"
+    },
+    {
+      "id": "kk-205f43c7134586175d3b",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8179931640625,
+        "y": 0.5375757431567845
+      },
+      "source": "builtin",
+      "reference": "G202"
+    },
+    {
+      "id": "kk-7cb5301a40b0896b5940",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8629150390625,
+        "y": 0.31937125114461534
+      },
+      "source": "builtin",
+      "reference": "G203"
+    },
+    {
+      "id": "kk-3ee5624d6a1147a06f8e",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2078857421875,
+        "y": 0.5786400354036243
+      },
+      "source": "builtin",
+      "reference": "G204"
+    },
+    {
+      "id": "kk-1857146ed2fc013e0d79",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.6376953125,
+        "y": 0.833586572311598
+      },
+      "source": "builtin",
+      "reference": "G205"
+    },
+    {
+      "id": "kk-bdb7eab4f282ecbe3594",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.588134765625,
+        "y": 0.8775621683941602
+      },
+      "source": "builtin",
+      "reference": "G206"
+    },
+    {
+      "id": "kk-16ca71dbeb36d0419c5f",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.270263671875,
+        "y": 0.7267848755036398
+      },
+      "source": "builtin",
+      "reference": "G207"
+    },
+    {
+      "id": "kk-2d7a7f3740f1bd5982f2",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.144287109375,
+        "y": 0.5212419855943539
+      },
+      "source": "builtin",
+      "reference": "G208"
+    },
+    {
+      "id": "kk-2870eb47d80f74233200",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8330078125,
+        "y": 0.2667924242971795
+      },
+      "source": "builtin",
+      "reference": "G209"
+    },
+    {
+      "id": "kk-aa3db6172d00c34b5f13",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.1494140625,
+        "y": 0.25750726501060184
+      },
+      "source": "builtin",
+      "reference": "G210"
+    },
+    {
+      "id": "kk-6e53877dbe5ee40793ca",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.205078125,
+        "y": 0.19246010745400133
+      },
+      "source": "builtin",
+      "reference": "G211"
+    },
+    {
+      "id": "kk-c545d4012c6bad252e82",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.510986328125,
+        "y": 0.8710920065277907
+      },
+      "source": "builtin",
+      "reference": "G212"
+    },
+    {
+      "id": "kk-b3e13bee36961d01686a",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.129150390625,
+        "y": 0.6780273627367019
+      },
+      "source": "builtin",
+      "reference": "G213"
+    },
+    {
+      "id": "kk-9d5e9c3cebdaeffb9727",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.688232421875,
+        "y": 0.7605629782426615
+      },
+      "source": "builtin",
+      "reference": "G214"
+    },
+    {
+      "id": "kk-d7ca2f394ab935cc3642",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.785888671875,
+        "y": 0.6974736653995959
+      },
+      "source": "builtin",
+      "reference": "G215"
+    },
+    {
+      "id": "kk-b06950d7cbdd25cca763",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.902099609375,
+        "y": 0.6606127071086116
+      },
+      "source": "builtin",
+      "reference": "G216"
+    },
+    {
+      "id": "kk-eedeedfee5769be9e010",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.90185546875,
+        "y": 0.5900906590132193
+      },
+      "source": "builtin",
+      "reference": "G217"
+    },
+    {
+      "id": "kk-e4898122212320412d44",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.96044921875,
+        "y": 0.4038071198877249
+      },
+      "source": "builtin",
+      "reference": "G218"
+    },
+    {
+      "id": "kk-4a5cec23745d281569bc",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8828125,
+        "y": 0.17015004927264832
+      },
+      "source": "builtin",
+      "reference": "G219"
+    },
+    {
+      "id": "kk-ac55dcc8d05c137dd81a",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.906005859375,
+        "y": 0.0734597913931972
+      },
+      "source": "builtin",
+      "reference": "G220"
+    },
+    {
+      "id": "kk-e848056fb5f18f013f54",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.857177734375,
+        "y": 0.09162393608768443
+      },
+      "source": "builtin",
+      "reference": "G221"
+    },
+    {
+      "id": "kk-2915bb8d5a25a0293b0e",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.7783203125,
+        "y": 0.0652013155882345
+      },
+      "source": "builtin",
+      "reference": "G222"
+    },
+    {
+      "id": "kk-f0d4fef7ce8bd5e8f2f7",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.607666015625,
+        "y": 0.0825870123194164
+      },
+      "source": "builtin",
+      "reference": "G223"
+    },
+    {
+      "id": "kk-ab0701844080ef19ea9f",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.514892578125,
+        "y": 0.06425692528284283
+      },
+      "source": "builtin",
+      "reference": "G224"
+    },
+    {
+      "id": "kk-84644723729305d8b61a",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.402587890625,
+        "y": 0.07075388158410367
+      },
+      "source": "builtin",
+      "reference": "G225"
+    },
+    {
+      "id": "kk-d815610e577b639e1e21",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.436767578125,
+        "y": 0.16940949731422972
+      },
+      "source": "builtin",
+      "reference": "G226"
+    },
+    {
+      "id": "kk-9c0dc68515e877296fde",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.247802734375,
+        "y": 0.1351299100966774
+      },
+      "source": "builtin",
+      "reference": "G227"
+    },
+    {
+      "id": "kk-59c79035587a6bf36fa9",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.10205078125,
+        "y": 0.10758400508458693
+      },
+      "source": "builtin",
+      "reference": "G228"
+    },
+    {
+      "id": "kk-3208e7572b4f403ffc37",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.045654296875,
+        "y": 0.2434599426280551
+      },
+      "source": "builtin",
+      "reference": "G229"
+    },
+    {
+      "id": "kk-003971b11029352fa48e",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.06640625,
+        "y": 0.34866386366246727
+      },
+      "source": "builtin",
+      "reference": "G230"
+    },
+    {
+      "id": "kk-eb93c4ce598c626f4df9",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.1845703125,
+        "y": 0.40676592810819506
+      },
+      "source": "builtin",
+      "reference": "G231"
+    },
+    {
+      "id": "kk-ac8931ae0ae021974b75",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.349365234375,
+        "y": 0.7929244458542151
+      },
+      "source": "builtin",
+      "reference": "G232"
+    },
+    {
+      "id": "kk-aaf4007e0f5f3de6e915",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.1162109375,
+        "y": 0.7602376574693583
+      },
+      "source": "builtin",
+      "reference": "G233"
+    },
+    {
+      "id": "kk-594ab8abd19f194944d9",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.45361328125,
+        "y": 0.8110186934188413
+      },
+      "source": "builtin",
+      "reference": "G234"
+    },
+    {
+      "id": "kk-749bb0d2a48eb331fe90",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3681640625,
+        "y": 0.9052117340862272
+      },
+      "source": "builtin",
+      "reference": "G235"
+    },
+    {
+      "id": "kk-54f287b782398775dbd4",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.263671875,
+        "y": 0.8775621683941602
+      },
+      "source": "builtin",
+      "reference": "G236"
+    },
+    {
+      "id": "kk-22659d33b9367f9773d9",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.23193359375,
+        "y": 0.9475318845110692
+      },
+      "source": "builtin",
+      "reference": "G237"
+    },
+    {
+      "id": "kk-7129930a3c2dc4954dbd",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.189453125,
+        "y": 0.8207473214862819
+      },
+      "source": "builtin",
+      "reference": "G238"
+    },
+    {
+      "id": "kk-ca9888b9894bae002a98",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.12646484375,
+        "y": 0.8276481127181408
+      },
+      "source": "builtin",
+      "reference": "G239"
+    },
+    {
+      "id": "kk-bd935c4ad5bf5790eb99",
+      "mapId": "miramar",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.12158203125,
+        "y": 0.9120118742847532
+      },
+      "source": "builtin",
+      "reference": "G240"
+    },
+    {
+      "id": "kk-e591f4a19cc0b15deb27",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.7659912109375,
+        "y": 0.5681544314462457
+      },
+      "source": "builtin",
+      "reference": "C201"
+    },
+    {
+      "id": "kk-a3ac8046354f912e0491",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.1434326171875,
+        "y": 0.2407346241472208
+      },
+      "source": "builtin",
+      "reference": "A201"
+    },
+    {
+      "id": "kk-89141d4de988126d1c2c",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.111083984375,
+        "y": 0.2724079880127602
+      },
+      "source": "builtin",
+      "reference": "A202"
+    },
+    {
+      "id": "kk-85dc15f62a0d6ee4bf71",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.313720703125,
+        "y": 0.17307932815178356
+      },
+      "source": "builtin",
+      "reference": "A203"
+    },
+    {
+      "id": "kk-0e8e7e5bbf81f91d175f",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.34423828125,
+        "y": 0.27173257511239035
+      },
+      "source": "builtin",
+      "reference": "A204"
+    },
+    {
+      "id": "kk-c7259b774098c88926ae",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.18798828125,
+        "y": 0.3704327610719928
+      },
+      "source": "builtin",
+      "reference": "A205"
+    },
+    {
+      "id": "kk-671757d34da42b5ff29a",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.0634765625,
+        "y": 0.39956990414496696
+      },
+      "source": "builtin",
+      "reference": "A206"
+    },
+    {
+      "id": "kk-8eecb3ba94744bec5201",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.255126953125,
+        "y": 0.5023804598434263
+      },
+      "source": "builtin",
+      "reference": "A207"
+    },
+    {
+      "id": "kk-4c9a6fb2af5ddb20fd78",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.379638671875,
+        "y": 0.443230078196429
+      },
+      "source": "builtin",
+      "reference": "A208"
+    },
+    {
+      "id": "kk-96c2e1509e137841b8eb",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4827880859375,
+        "y": 0.36877893107027904
+      },
+      "source": "builtin",
+      "reference": "A209"
+    },
+    {
+      "id": "kk-4454ad029d7bc814f34f",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.5413818359375,
+        "y": 0.28478046834020165
+      },
+      "source": "builtin",
+      "reference": "A210"
+    },
+    {
+      "id": "kk-5612b2768b7fc2bdf7fa",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.37841796875,
+        "y": 0.0725628765020146
+      },
+      "source": "builtin",
+      "reference": "A211"
+    },
+    {
+      "id": "kk-d6f1ea8f20bd4baa85cc",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4833984375,
+        "y": 0.14547598332817374
+      },
+      "source": "builtin",
+      "reference": "A212"
+    },
+    {
+      "id": "kk-63497b39938fb5fb873c",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.5682373046875,
+        "y": 0.1013129924434008
+      },
+      "source": "builtin",
+      "reference": "A213"
+    },
+    {
+      "id": "kk-c3a11508f07e3269fe6c",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.7220458984375,
+        "y": 0.10318283984229026
+      },
+      "source": "builtin",
+      "reference": "A214"
+    },
+    {
+      "id": "kk-61f240ecd2d45055822a",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.6756591796875,
+        "y": 0.17428462578504011
+      },
+      "source": "builtin",
+      "reference": "A215"
+    },
+    {
+      "id": "kk-ec1f0128c9a92f503944",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.8123779296875,
+        "y": 0.14547598332817374
+      },
+      "source": "builtin",
+      "reference": "A216"
+    },
+    {
+      "id": "kk-fa2dbea607571c734bf6",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.85205078125,
+        "y": 0.19982510895715505
+      },
+      "source": "builtin",
+      "reference": "A217"
+    },
+    {
+      "id": "kk-f8bd830b42b244680c19",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.792236328125,
+        "y": 0.31167932373817464
+      },
+      "source": "builtin",
+      "reference": "A218"
+    },
+    {
+      "id": "kk-6b2b12036c0aeb8f3b58",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.6951904296875,
+        "y": 0.3524429882037372
+      },
+      "source": "builtin",
+      "reference": "A219"
+    },
+    {
+      "id": "kk-beda93bda67dd80c30dd",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.9393310546875,
+        "y": 0.3645924695631697
+      },
+      "source": "builtin",
+      "reference": "A220"
+    },
+    {
+      "id": "kk-66abc0f3a4f61820668b",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.877685546875,
+        "y": 0.41252822350478624
+      },
+      "source": "builtin",
+      "reference": "A221"
+    },
+    {
+      "id": "kk-0f833044a597315d2b12",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.7452392578125,
+        "y": 0.4461442405923336
+      },
+      "source": "builtin",
+      "reference": "A222"
+    },
+    {
+      "id": "kk-20246d329326dfcd3c69",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.76171875,
+        "y": 0.5708323120609748
+      },
+      "source": "builtin",
+      "reference": "A223"
+    },
+    {
+      "id": "kk-3c2d3e6581ce070dee98",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.615234375,
+        "y": 0.43964325114222996
+      },
+      "source": "builtin",
+      "reference": "A224"
+    },
+    {
+      "id": "kk-f8ccf0b021bf2b3311cc",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.584716796875,
+        "y": 0.5192115243757031
+      },
+      "source": "builtin",
+      "reference": "A225"
+    },
+    {
+      "id": "kk-77c143e815479f506872",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4400634765625,
+        "y": 0.5198264721941457
+      },
+      "source": "builtin",
+      "reference": "A226"
+    },
+    {
+      "id": "kk-cc1846245a01fd269b75",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.2081298828125,
+        "y": 0.5859247948807114
+      },
+      "source": "builtin",
+      "reference": "A227"
+    },
+    {
+      "id": "kk-0217a1fec98a5efc0bf7",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.1129150390625,
+        "y": 0.6165725388245825
+      },
+      "source": "builtin",
+      "reference": "A228"
+    },
+    {
+      "id": "kk-ee97500d8101d6388eed",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.1812744140625,
+        "y": 0.7348853505662218
+      },
+      "source": "builtin",
+      "reference": "A229"
+    },
+    {
+      "id": "kk-f06dc907713fdee5fa4a",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.2947998046875,
+        "y": 0.7655183598355029
+      },
+      "source": "builtin",
+      "reference": "A230"
+    },
+    {
+      "id": "kk-8e13aab5ba119f3b14ad",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.115966796875,
+        "y": 0.8802243683772211
+      },
+      "source": "builtin",
+      "reference": "A231"
+    },
+    {
+      "id": "kk-d2fbff3f7bf6a4a50526",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4510498046875,
+        "y": 0.9243195853786363
+      },
+      "source": "builtin",
+      "reference": "A232"
+    },
+    {
+      "id": "kk-4b0c14cf42bb929dfd72",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4443359375,
+        "y": 0.8216821402252488
+      },
+      "source": "builtin",
+      "reference": "A233"
+    },
+    {
+      "id": "kk-0e48eda6681c6ff51dd3",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.543212890625,
+        "y": 0.8228581685827705
+      },
+      "source": "builtin",
+      "reference": "A234"
+    },
+    {
+      "id": "kk-945b322f06f3b1ba8986",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.5615234375,
+        "y": 0.8769034015489012
+      },
+      "source": "builtin",
+      "reference": "A235"
+    },
+    {
+      "id": "kk-f31db98ffcb491cf8e7e",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.635986328125,
+        "y": 0.7888357483103037
+      },
+      "source": "builtin",
+      "reference": "A236"
+    },
+    {
+      "id": "kk-e006a3d92cf61cc988a4",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.76904296875,
+        "y": 0.7502923936244147
+      },
+      "source": "builtin",
+      "reference": "A237"
+    },
+    {
+      "id": "kk-6cd34ab2ea76cb6f9ad1",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.604248046875,
+        "y": 0.7004708690254506
+      },
+      "source": "builtin",
+      "reference": "A238"
+    },
+    {
+      "id": "kk-48205a8371a766ea193c",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.5682373046875,
+        "y": 0.6611825464296982
+      },
+      "source": "builtin",
+      "reference": "A239"
+    },
+    {
+      "id": "kk-9092fa0710aaea4ac842",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.4132080078125,
+        "y": 0.6719201408273359
+      },
+      "source": "builtin",
+      "reference": "A240"
+    },
+    {
+      "id": "kk-4622b1fd8d4100939412",
+      "mapId": "miramar",
+      "kind": "car",
+      "certainty": "fixed",
+      "position": {
+        "x": 0.33447265625,
+        "y": 0.6425304995590946
+      },
+      "source": "builtin",
+      "reference": "A241"
+    },
+    {
+      "id": "kk-1bb562387fd47c50a80f",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.1944580078125,
+        "y": 0.17784845500098823
+      },
+      "source": "builtin",
+      "reference": "G301"
+    },
+    {
+      "id": "kk-e6955662c10ebaeefef9",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.72998046875,
+        "y": 0.24955413209535948
+      },
+      "source": "builtin",
+      "reference": "G302"
+    },
+    {
+      "id": "kk-15fdc24e54499c34ddda",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.4425048828125,
+        "y": 0.28515771598427175
+      },
+      "source": "builtin",
+      "reference": "G303"
+    },
+    {
+      "id": "kk-ffb8dfcd250551a69f46",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.669677734375,
+        "y": 0.3696072954042433
+      },
+      "source": "builtin",
+      "reference": "G304"
+    },
+    {
+      "id": "kk-b01f5b7871fd3e55ea8f",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2138671875,
+        "y": 0.48631127907347316
+      },
+      "source": "builtin",
+      "reference": "G305"
+    },
+    {
+      "id": "kk-306846863fb2d2e5c770",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.5279541015625,
+        "y": 0.5400272277818052
+      },
+      "source": "builtin",
+      "reference": "G306"
+    },
+    {
+      "id": "kk-a0b7c4eb23111e2a4a1b",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8165283203125,
+        "y": 0.690402674461462
+      },
+      "source": "builtin",
+      "reference": "G307"
+    },
+    {
+      "id": "kk-396842a94875f4236bd8",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.6094970703125,
+        "y": 0.8516848788506532
+      },
+      "source": "builtin",
+      "reference": "G308"
+    },
+    {
+      "id": "kk-dcbe4b7f3333f3b4bf00",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.287109375,
+        "y": 0.8710920065277907
+      },
+      "source": "builtin",
+      "reference": "G309"
+    },
+    {
+      "id": "kk-b267d41b46bc59aa0c48",
+      "mapId": "vikendi",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.1591796875,
+        "y": 0.7100077114202509
+      },
+      "source": "builtin",
+      "reference": "G310"
+    },
+    {
+      "id": "kk-e6da50eaaac8a7fa3ab0",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3109130859375,
+        "y": 0.21231437438915585
+      },
+      "source": "builtin",
+      "reference": "C301"
+    },
+    {
+      "id": "kk-c7ba5e0095eac0e3f8c5",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.206787109375,
+        "y": 0.2440949750887434
+      },
+      "source": "builtin",
+      "reference": "C302"
+    },
+    {
+      "id": "kk-b998dd9e1e9be1eea405",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.4556884765625,
+        "y": 0.16412991284067407
+      },
+      "source": "builtin",
+      "reference": "C303"
+    },
+    {
+      "id": "kk-d7d2d87a24614679d9f1",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.7469482421875,
+        "y": 0.16336161749565953
+      },
+      "source": "builtin",
+      "reference": "C304"
+    },
+    {
+      "id": "kk-ef0de09801a1c03b9268",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8436279296875,
+        "y": 0.38451925682004245
+      },
+      "source": "builtin",
+      "reference": "C305"
+    },
+    {
+      "id": "kk-05f2f352b3a7234122a3",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.643798828125,
+        "y": 0.30446053030386677
+      },
+      "source": "builtin",
+      "reference": "C306"
+    },
+    {
+      "id": "kk-c9a8c2b29dd84a4c3255",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.5048828125,
+        "y": 0.28590987517446703
+      },
+      "source": "builtin",
+      "reference": "C307"
+    },
+    {
+      "id": "kk-c7dba6986b10485ebfad",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.417236328125,
+        "y": 0.34080510276693055
+      },
+      "source": "builtin",
+      "reference": "C308"
+    },
+    {
+      "id": "kk-409137f4fee5bd3e2402",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2470703125,
+        "y": 0.4032989948883171
+      },
+      "source": "builtin",
+      "reference": "C309"
+    },
+    {
+      "id": "kk-10e2bcf70ade862b684f",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.7232666015625,
+        "y": 0.4467894459901427
+      },
+      "source": "builtin",
+      "reference": "C310"
+    },
+    {
+      "id": "kk-ca6103f960aeee17525a",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.373046875,
+        "y": 0.4621732342487014
+      },
+      "source": "builtin",
+      "reference": "C311"
+    },
+    {
+      "id": "kk-60cc268ed9a344c9de4d",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.33251953125,
+        "y": 0.5373248123042857
+      },
+      "source": "builtin",
+      "reference": "C312"
+    },
+    {
+      "id": "kk-39eab05bdb1ae7b8bc30",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2587890625,
+        "y": 0.6052549336399538
+      },
+      "source": "builtin",
+      "reference": "C313"
+    },
+    {
+      "id": "kk-6ad6ac3d357a45d424e7",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2392578125,
+        "y": 0.658724426118648
+      },
+      "source": "builtin",
+      "reference": "C314"
+    },
+    {
+      "id": "kk-d025bfed2403734839d7",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.1278076171875,
+        "y": 0.5976470095795086
+      },
+      "source": "builtin",
+      "reference": "C315"
+    },
+    {
+      "id": "kk-4e3d76cc3e9b529d0fe1",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.23193359375,
+        "y": 0.774463932410677
+      },
+      "source": "builtin",
+      "reference": "C316"
+    },
+    {
+      "id": "kk-18d510fdfde18a00a932",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.390625,
+        "y": 0.798740201195018
+      },
+      "source": "builtin",
+      "reference": "C317"
+    },
+    {
+      "id": "kk-104d512de22d496b53ef",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.5167236328125,
+        "y": 0.8257153742149599
+      },
+      "source": "builtin",
+      "reference": "C318"
+    },
+    {
+      "id": "kk-184abf5a72d13344a234",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.7396240234375,
+        "y": 0.7957067897511685
+      },
+      "source": "builtin",
+      "reference": "C319"
+    },
+    {
+      "id": "kk-8ff97b7d48797129a797",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.6708984375,
+        "y": 0.6264563413526089
+      },
+      "source": "builtin",
+      "reference": "C320"
+    },
+    {
+      "id": "kk-54f52bef4c1d79b5ae76",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.60986328125,
+        "y": 0.5070824144732
+      },
+      "source": "builtin",
+      "reference": "C321"
+    },
+    {
+      "id": "kk-3aea8039779a9ad6ba09",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8524169921875,
+        "y": 0.5615369264085631
+      },
+      "source": "builtin",
+      "reference": "C322"
+    },
+    {
+      "id": "kk-0eb310278a917bbbabba",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.4609375,
+        "y": 0.6584426503711687
+      },
+      "source": "builtin",
+      "reference": "C323"
+    },
+    {
+      "id": "kk-d7a5c40ebdfa35015a12",
+      "mapId": "vikendi",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.454833984375,
+        "y": 0.6791677329152674
+      },
+      "source": "builtin",
+      "reference": "C324"
+    },
+    {
+      "id": "kk-8311fe3f765b85af8a36",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.517333984375,
+        "y": 0.1211122034809533
+      },
+      "source": "builtin",
+      "reference": "G401"
+    },
+    {
+      "id": "kk-1cb829ebd8cbc757d974",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2169189453125,
+        "y": 0.2445697195292303
+      },
+      "source": "builtin",
+      "reference": "G402"
+    },
+    {
+      "id": "kk-6c18af8e62d23212698b",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.452392578125,
+        "y": 0.33594448661337367
+      },
+      "source": "builtin",
+      "reference": "G403"
+    },
+    {
+      "id": "kk-2bea6d47229795d34c47",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.158935546875,
+        "y": 0.509771758631013
+      },
+      "source": "builtin",
+      "reference": "G404"
+    },
+    {
+      "id": "kk-241667bab4e4e90ee339",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3624267578125,
+        "y": 0.8609500266379366
+      },
+      "source": "builtin",
+      "reference": "G405"
+    },
+    {
+      "id": "kk-600eba983e02164c1fc6",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.7891845703125,
+        "y": 0.7905758489775858
+      },
+      "source": "builtin",
+      "reference": "G406"
+    },
+    {
+      "id": "kk-ca2f541eff5cc9dc0050",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.490234375,
+        "y": 0.5820198940379337
+      },
+      "source": "builtin",
+      "reference": "G407"
+    },
+    {
+      "id": "kk-f99192156e1c61bc5ae7",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.611572265625,
+        "y": 0.4484630675815686
+      },
+      "source": "builtin",
+      "reference": "G408"
+    },
+    {
+      "id": "kk-aa621a302341160b95d2",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.77685546875,
+        "y": 0.3540427363476293
+      },
+      "source": "builtin",
+      "reference": "G409"
+    },
+    {
+      "id": "kk-ae478122048e7fb0498b",
+      "mapId": "taego",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.933349609375,
+        "y": 0.2792852563132292
+      },
+      "source": "builtin",
+      "reference": "G410"
+    },
+    {
+      "id": "kk-90dc27f117f1772fab67",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.634033203125,
+        "y": 0.17784845500098823
+      },
+      "source": "builtin",
+      "reference": "C401"
+    },
+    {
+      "id": "kk-919588e00dd23317a6e3",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.4671630859375,
+        "y": 0.11842793063624785
+      },
+      "source": "builtin",
+      "reference": "C402"
+    },
+    {
+      "id": "kk-d0d85f829fed012d72fa",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.198974609375,
+        "y": 0.1967085271824563
+      },
+      "source": "builtin",
+      "reference": "C403"
+    },
+    {
+      "id": "kk-1dd1792b5f2b56ccde98",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.1552734375,
+        "y": 0.3076037695630533
+      },
+      "source": "builtin",
+      "reference": "C404"
+    },
+    {
+      "id": "kk-209b22bc803035fbd76b",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2906494140625,
+        "y": 0.2930256761633335
+      },
+      "source": "builtin",
+      "reference": "C405"
+    },
+    {
+      "id": "kk-a0b245c60b14073dda04",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3155517578125,
+        "y": 0.3003407945484011
+      },
+      "source": "builtin",
+      "reference": "C406"
+    },
+    {
+      "id": "kk-df1cd4693e95efe0f5f7",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.4312744140625,
+        "y": 0.3520858932103206
+      },
+      "source": "builtin",
+      "reference": "C407"
+    },
+    {
+      "id": "kk-13ed0cab6a59b8fbf689",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.5728759765625,
+        "y": 0.3012641247568547
+      },
+      "source": "builtin",
+      "reference": "C408"
+    },
+    {
+      "id": "kk-af1e41aa872c07efb692",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3890380859375,
+        "y": 0.4660541054520591
+      },
+      "source": "builtin",
+      "reference": "C409"
+    },
+    {
+      "id": "kk-6fa6fc0ac3eae69e83d5",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.410888671875,
+        "y": 0.6328030644490618
+      },
+      "source": "builtin",
+      "reference": "C410"
+    },
+    {
+      "id": "kk-a974b8bfca9fced1b621",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3243408203125,
+        "y": 0.52413988073615
+      },
+      "source": "builtin",
+      "reference": "C411"
+    },
+    {
+      "id": "kk-865566b30a507e4d0390",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.081298828125,
+        "y": 0.5571598414681203
+      },
+      "source": "builtin",
+      "reference": "C412"
+    },
+    {
+      "id": "kk-c488cbe8e0811febf899",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.2232666015625,
+        "y": 0.7192930348759304
+      },
+      "source": "builtin",
+      "reference": "C413"
+    },
+    {
+      "id": "kk-58dba6b13b059ee651a2",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3890380859375,
+        "y": 0.809052896093399
+      },
+      "source": "builtin",
+      "reference": "C414"
+    },
+    {
+      "id": "kk-11b502becb242cee8394",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.490966796875,
+        "y": 0.8431850338744309
+      },
+      "source": "builtin",
+      "reference": "C415"
+    },
+    {
+      "id": "kk-ecd24721f683f3559ea9",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.6734619140625,
+        "y": 0.8458788746228086
+      },
+      "source": "builtin",
+      "reference": "C416"
+    },
+    {
+      "id": "kk-7fa1014c6c53ab574e61",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.7181396484375,
+        "y": 0.7249156072518598
+      },
+      "source": "builtin",
+      "reference": "C417"
+    },
+    {
+      "id": "kk-83f33f69da8bfed55b7a",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.63671875,
+        "y": 0.6469334975503687
+      },
+      "source": "builtin",
+      "reference": "C418"
+    },
+    {
+      "id": "kk-ec1eb941bded460c8c9f",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.7906494140625,
+        "y": 0.5529527083202123
+      },
+      "source": "builtin",
+      "reference": "C419"
+    },
+    {
+      "id": "kk-b51ba1193b67a86473b3",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8917236328125,
+        "y": 0.38745958167145916
+      },
+      "source": "builtin",
+      "reference": "C420"
+    },
+    {
+      "id": "kk-1e71f35558083e2c5f02",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8575439453125,
+        "y": 0.20247978599999805
+      },
+      "source": "builtin",
+      "reference": "C421"
+    },
+    {
+      "id": "kk-87df520aebb870bcaa0e",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.768798828125,
+        "y": 0.18339503026351678
+      },
+      "source": "builtin",
+      "reference": "C422"
+    },
+    {
+      "id": "kk-8fd15a6fde84f9ec68b6",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.56982421875,
+        "y": 0.44653146554949785
+      },
+      "source": "builtin",
+      "reference": "C423"
+    },
+    {
+      "id": "kk-171c301a94c79e86779f",
+      "mapId": "taego",
+      "kind": "car",
+      "certainty": "possible",
+      "position": {
+        "x": 0.426025390625,
+        "y": 0.6103185623748377
+      },
+      "source": "builtin",
+      "reference": "C424"
+    },
+    {
+      "id": "kk-90d4ecc3b20ea8338d85",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.1495361328125,
+        "y": 0.11362054592832666
+      },
+      "source": "builtin",
+      "reference": "G501"
+    },
+    {
+      "id": "kk-f3692c5dd3148faf3a23",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.6676025390625,
+        "y": 0.2612803215289301
+      },
+      "source": "builtin",
+      "reference": "G502"
+    },
+    {
+      "id": "kk-d53e8944b28ff5c30a9e",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3779296875,
+        "y": 0.28326360321101274
+      },
+      "source": "builtin",
+      "reference": "G503"
+    },
+    {
+      "id": "kk-a36143f4f74b5ad9e4a3",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.3388671875,
+        "y": 0.3584265402119196
+      },
+      "source": "builtin",
+      "reference": "G504"
+    },
+    {
+      "id": "kk-9720ab99d62e86cb832a",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.5831298828125,
+        "y": 0.40037830859356033
+      },
+      "source": "builtin",
+      "reference": "G505"
+    },
+    {
+      "id": "kk-42298cb0f759a16fba49",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.0831298828125,
+        "y": 0.5644355683589185
+      },
+      "source": "builtin",
+      "reference": "G506"
+    },
+    {
+      "id": "kk-de1f1d2b39c3f96e980a",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.0855712890625,
+        "y": 0.6474678293006775
+      },
+      "source": "builtin",
+      "reference": "G507"
+    },
+    {
+      "id": "kk-7cf7fb13620a1ef95f10",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.510498046875,
+        "y": 0.5786400354036243
+      },
+      "source": "builtin",
+      "reference": "G508"
+    },
+    {
+      "id": "kk-2927b597e884f00bd922",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.543701171875,
+        "y": 0.7432277295884764
+      },
+      "source": "builtin",
+      "reference": "G509"
+    },
+    {
+      "id": "kk-dd251c98eda299d371ab",
+      "mapId": "deston",
+      "kind": "aircraft",
+      "certainty": "possible",
+      "position": {
+        "x": 0.8084716796875,
+        "y": 0.7480064129558401
+      },
+      "source": "builtin",
+      "reference": "G510"
+    }
+  ]
+}
