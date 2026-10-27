@@ -40,6 +40,6 @@ GitHub Pages 已部署最新代码，但实际浏览器首次打开仍显示 ERA
 - [Windows 回归构建与实际 EXE 验收 40482008870](https://github.com/Yungzzhh/pubgmap/actions/runs/40482008870) 成功；未替换已发行的便携包。
 - 线上 HTML、JS、CSS、Service Worker 与本次本机构建一致，缓存版本 ae8f15dee00a4f9d；见 [部署核对](./pwa-update/deployment.json)。
 - 旧浏览器首次普通刷新仍可能命中旧页面。实际验收临时绕过 Service Worker 和 HTTP 缓存，并保持到新版脚本加载完毕；随后恢复正常缓存设置。未删除任何站点存储。
-- 实际浏览器已显示 PUBG MAP、六图切换、「密室位置」「载具点位」及 v1.4.1 网页版。截图时六图首次缓存尚在进行，不把这一步报告为线上断网验收通过；完整离线回归见前述本地双版本测试。
+- 实际浏览器已显示 PUBG MAP、六图切换、「密室位置」「载具点位」及 v1.4.1 网页版。截图时六图首次缓存尚未完成，不把这一步报告为线上断网验收通过；完整离线回归见前述本地双版本测试。
 
-![线上 v1.4.1 网页，首次地图缓存进行中](./pwa-update/live-page.png)
+![线上 v1.4.1 网页，首次地图缓存尚未完成](./pwa-update/live-page.png)
