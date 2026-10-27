@@ -1,0 +1,85 @@
+{
+  "platform": "win32",
+  "arch": "x64",
+  "executable": "D:\\a\\_temp\\PUBG 中文便携 测试\\PUBGRangefinder.exe",
+  "checks": [
+    "Windows EXE first launch with DNS disabled",
+    "portable data beside EXE",
+    "sandbox and context isolation",
+    "desktop UI without PWA or Service Worker",
+    "six maps measure 500 m offline",
+    "reset retains view",
+    "external network denied",
+    "selected map persists after full restart",
+    "car and aircraft filters",
+    "recorded vehicle points persist after restart",
+    "reset does not delete vehicle points"
+  ],
+  "maps": [
+    {
+      "id": "erangel",
+      "distance": 500,
+      "resetPreservedView": true
+    },
+    {
+      "id": "miramar",
+      "distance": 500,
+      "resetPreservedView": true
+    },
+    {
+      "id": "sanhok",
+      "distance": 500,
+      "resetPreservedView": true
+    },
+    {
+      "id": "vikendi",
+      "distance": 500,
+      "resetPreservedView": true
+    },
+    {
+      "id": "taego",
+      "distance": 500,
+      "resetPreservedView": true
+    },
+    {
+      "id": "deston",
+      "distance": 500,
+      "resetPreservedView": true
+    }
+  ],
+  "native": {
+    "packaged": true,
+    "version": "1.3.0",
+    "dataDirectory": "D:\\a\\_temp\\PUBG 中文便携 测试\\data",
+    "preferences": {
+      "allowRunningInsecureContent": false,
+      "contextIsolation": true,
+      "disableDialogs": false,
+      "disablePopups": false,
+      "disableWakeLocks": false,
+      "enableBlinkFeatures": "",
+      "experimentalFeatures": false,
+      "javascript": true,
+      "nodeIntegration": false,
+      "nodeIntegrationInSubFrames": false,
+      "nodeIntegrationInWorker": false,
+      "safeDialogs": false,
+      "safeDialogsMessage": "",
+      "sandbox": true,
+      "webSecurity": true,
+      "webviewTag": false
+    }
+  },
+  "vehiclePoints": {
+    "builtin": 257,
+    "erangel": 97,
+    "recordedSanhok": 2,
+    "kinds": [
+      "car",
+      "aircraft"
+    ],
+    "filtersVerified": true,
+    "resetKeptRecords": true
+  },
+  "success": true
+}

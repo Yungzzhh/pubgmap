@@ -39,4 +39,18 @@
 
 ## 交付状态
 
-Windows v1.3 打包与实际 EXE 验收进行中，完成后补充成品、校验与截图。
+状态：已交付 Windows v1.3.0 x64 便携版。
+
+- 本机文件：`docs/changes/vehicle-spawns/PUBG-Rangefinder-1.3.0-win-x64-portable.zip`，178,602,272 字节，约 170.3 MiB。ZIP 不提交到 Git。
+- [GitHub 备用下载](https://github.com/Yungzzhh/pubgmap/actions/runs/40446792467/artifacts/12709110192)（需登录，构建产物保留 90 天）。
+- 完整解压后运行 `PUBGRangefinder.exe`；升级请保留旧版 data 文件夹。程序仍为未做数字签名的便携版。
+- [Windows Actions 40446792467](https://github.com/Yungzzhh/pubgmap/actions/runs/40446792467) 成功，源码为 `13c8813411cbf2fb7ef13071d7056fd3a06d9da7`。
+- 实际 EXE 在禁用网络解析的 Windows 环境中通过六图测距、载具分类筛选、自记汽车/飞机、Reset 保留点位及重启恢复记录验证，详见 [启动验收](./vehicle-spawns/verification.json)。
+- ZIP SHA-256：`ee90f205fd68ee37600936d7c14658b689b2770781932b9da7af3c68d50dbfce`，与 GitHub artifact 摘要一致；72 条目 CRC、x64 PE、15 个内置资源及全部 257 个点位标识校验通过，许可全文已随包保留。
+- 独立文件校验详见 [archive-verification.json](./vehicle-spawns/archive-verification.json) 和 [SHA-256 文件](./vehicle-spawns/PUBG-Rangefinder-1.3.0-win-x64-portable.zip.sha256)。
+
+![Windows 载具点位设置](./vehicle-spawns/vehicle-panel.png)
+
+![Windows 自记汽车与飞机点](./vehicle-spawns/vehicle-records.png)
+
+用户游戏电脑的实际游戏刷新、显卡及系统提示仍以真实设备使用为准；社区点位不表示本局实时载具状态。

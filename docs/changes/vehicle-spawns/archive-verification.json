@@ -1,0 +1,28 @@
+{
+  "verifiedOn": "2026-10-27",
+  "file": "PUBG-Rangefinder-1.3.0-win-x64-portable.zip",
+  "bytes": 178602272,
+  "archiveEntries": 72,
+  "crcVerified": true,
+  "windowsX64": true,
+  "peMachine": "0x8664",
+  "peFormat": "PE32+",
+  "certificateTableBytes": 0,
+  "bundledUserData": false,
+  "sha256": "ee90f205fd68ee37600936d7c14658b689b2770781932b9da7af3c68d50dbfce",
+  "githubArtifactId": 12709110192,
+  "appVersion": "1.3.0",
+  "bundleAssetsVerified": 15,
+  "maps": [
+    "erangel",
+    "miramar",
+    "sanhok",
+    "vikendi",
+    "taego",
+    "deston"
+  ],
+  "vehiclePointIdsVerified": 257,
+  "sourceLicenseIncluded": true,
+  "mainMatchesSource": true,
+  "policyMatchesSource": true
+}

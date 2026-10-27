@@ -1,0 +1,45 @@
+- banner:
+  - text: PUBG MAP 桌面离线测距
+  - button "载具点位设置": 载具点位
+  - button "查看本地地图说明": 地图已内置
+  - button "使用说明"
+- main:
+  - region "萨诺地图":
+    - application "萨诺交互地图：轻点设置炮位，再轻点设置目标；单指拖动，双指缩放":
+      - img "PUBG 萨诺完整地图"
+    - text: 切换战场 · 6 张离线地图
+    - heading "萨诺" [level=1]:
+      - combobox "选择地图":
+        - option "艾伦格"
+        - option "米拉玛"
+        - option "萨诺" [selected]
+        - option "维寒迪"
+        - option "泰戈"
+        - option "帝斯顿"
+    - text: 热带雨林 · 4 × 4 km
+    - button "放大地图"
+    - text: 1.0×
+    - button "缩小地图" [disabled]
+    - button "查看完整地图"
+    - button "显示一公里网格"
+    - text: 500 m PUBG ORIGINAL MAP SANHOK · NORTH UP 轻点地图，设置迫击炮位置
+  - complementary:
+    - text: PRECISION IN EVERY SHOT
+    - heading "迫击炮测距" [level=2]
+    - paragraph: 定下炮位，让距离一目了然。
+    - region "测距结果":
+      - text: 两点直线距离 RANGE
+      - status: —
+      - text: 米 等待定点 121 m 迫击炮参考射程 700 m
+    - text: A
+    - strong: 迫击炮位置
+    - text: 轻点地图设置炮位 B
+    - strong: 目标位置
+    - text: 再次轻点，计算距离
+    - button "重置定点 RESET" [disabled]
+    - paragraph: 只清除定点，保留当前缩放与位置
+    - text: 操作指南
+    - paragraph: 轻点两次，确定炮位与目标
+    - paragraph: 按住拖动地图，滚轮或双指缩放
+    - paragraph: 保持炮位，继续轻点可更换目标
+    - text: 为离线而设计 v1.3 桌面版
