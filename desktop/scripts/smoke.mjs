@@ -19,6 +19,11 @@ async function glyphSize(locator) {
   });
 }
 
+async function circleDiameter(locator) {
+  // SVG geometry excludes the stroke; Playwright boundingBox includes it.
+  return locator.evaluate(element => element.getBoundingClientRect().width);
+}
+
 async function launch() {
   return await _electron.launch({ executablePath, args: ['--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE localhost'], cwd: tmpdir(), timeout: 60000 });
 }
@@ -79,8 +84,8 @@ try {
   assert.equal(await page.locator('#vehicle-markers .vehicle-point').count(), 97);
   const vehicleGlyph = await glyphSize(page.locator('#vehicle-markers .icon').first());
   assert.ok(Math.abs(vehicleGlyph.width - 7) < .1 && Math.abs(vehicleGlyph.height - 7) < .1, 'Vehicle glyph must be exactly 50% of 14 px');
-  const vehicleCircle = await page.locator('#vehicle-markers .point-artwork > circle').first().boundingBox();
-  assert.ok(Math.abs(vehicleCircle.width - 10) < .1, 'Vehicle circle must be 50% of 20 px');
+  const vehicleCircle = await circleDiameter(page.locator('#vehicle-markers .point-artwork > circle').first());
+  assert.ok(Math.abs(vehicleCircle - 10) < .1, 'Vehicle circle must be 50% of 20 px');
   await page.getByRole('button', { name: '载具点位设置' }).click();
   await page.locator('#vehicle-aircraft').uncheck();
   assert.equal(await page.locator('#vehicle-markers [data-kind="aircraft"]').count(), 0);
@@ -93,9 +98,9 @@ try {
   await page.getByRole('button', { name: '关闭载具设置' }).click();
   assert.equal(await page.locator('#room-markers .room-point').count(), 19);
   const roomGlyph = await glyphSize(page.locator('#room-markers .icon').first());
-  const roomCircle = await page.locator('#room-markers .point-artwork > circle').first().boundingBox();
+  const roomCircle = await circleDiameter(page.locator('#room-markers .point-artwork > circle').first());
   assert.ok(Math.abs(roomGlyph.width - 7) < .1 && Math.abs(roomGlyph.height - 7) < .1);
-  assert.ok(Math.abs(roomCircle.width - 10) < .1);
+  assert.ok(Math.abs(roomCircle - 10) < .1);
   await page.getByRole('button', { name: '密室位置设置' }).click();
   await page.locator('#room-secret').uncheck();
   assert.equal(await page.locator('#room-markers .room-secret_room').count(), 0);
