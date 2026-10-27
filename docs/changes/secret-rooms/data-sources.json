@@ -1,0 +1,80 @@
+{
+  "name": "KampfKarten 社区资料",
+  "url": "https://github.com/JanJastrow/KampfKarten",
+  "tree": "4b8785fb9e65e8e8028b01d78008fdb684b38617",
+  "snapshot": "2025-12",
+  "checkedAt": "2026-10-27",
+  "license": "MIT",
+  "licenseFile": "maps/vehicle-data-LICENSE.txt",
+  "transform": "source latitude grid 8192 -> EPSG:3857 normalized raster",
+  "files": [
+    {
+      "mapId": "erangel",
+      "path": "maps/objects_erangel.json",
+      "gitBlob": "c840a1e42f82b7f546904eda80970977ca4d5e5c",
+      "sha256": "1b60671d78160d46716d366819367d26b24ae60370db5aadaa0bc541e3b790e8"
+    },
+    {
+      "mapId": "miramar",
+      "path": "maps/objects_miramar.json",
+      "gitBlob": "d86d1de38d7d827dbd94552bebf59513825d8552",
+      "sha256": "91af7f1985c9c38a23f3e03ff1361ae31e7937802daf375f6ffc89a482560dfa"
+    },
+    {
+      "mapId": "vikendi",
+      "path": "maps/objects_vikendi.json",
+      "gitBlob": "ad803c6de7ff99ac66fa841663158b4bb35bf9bf",
+      "sha256": "e4e2f448b0b44712f40a5aae3e31c3d09f1f890e686ac9d4849e9932b0e4eeb7"
+    },
+    {
+      "mapId": "taego",
+      "path": "maps/objects_taego.json",
+      "gitBlob": "03762169b4767636c0359b0407b3ce53ac3e954c",
+      "sha256": "284ab7a5af168e3d868e234cec1f4366ee5acc295970f27e7fd12c0294890429"
+    },
+    {
+      "mapId": "deston",
+      "path": "maps/objects_deston.json",
+      "gitBlob": "e3722b4ac8829aa43e5b0ac4eacc25c084be7559",
+      "sha256": "3ef3e92546a6146712ee9d2c9a11c84af8d79146435f8f5775a3237362ae600d"
+    }
+  ],
+  "coverage": [
+    {
+      "mapId": "erangel",
+      "status": "partial",
+      "secretRooms": 15,
+      "bunkers": 4
+    },
+    {
+      "mapId": "miramar",
+      "status": "partial",
+      "secretRooms": 0,
+      "bunkers": 3
+    },
+    {
+      "mapId": "sanhok",
+      "status": "none",
+      "secretRooms": 0,
+      "bunkers": 0
+    },
+    {
+      "mapId": "vikendi",
+      "status": "partial",
+      "secretRooms": 0,
+      "bunkers": 10
+    },
+    {
+      "mapId": "taego",
+      "status": "partial",
+      "secretRooms": 15,
+      "bunkers": 0
+    },
+    {
+      "mapId": "deston",
+      "status": "partial",
+      "secretRooms": 13,
+      "bunkers": 0
+    }
+  ]
+}

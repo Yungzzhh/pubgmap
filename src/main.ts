@@ -9,6 +9,10 @@ import { MAPS, MapSessions, getMap, mapGrid } from './maps.ts';
 import { vehicleDataset } from './vehicle-data.ts';
 import { readVehicleStore, writeVehicleStore, addVehiclePoint, removeLastVehiclePoint, filterVehiclePoints, visibleVehiclePoints } from './vehicles.ts';
 import type { VehicleStore, VehicleKind, SpawnCertainty } from './vehicles.ts';
+import { roomDataset } from './room-data.ts';
+import { filterRoomPoints, readRoomPreferences, writeRoomPreferences } from './rooms.ts';
+import type { RoomPreferences } from './rooms.ts';
+import { renderVehicleMarkers, renderRoomMarkers } from './map-markers.ts';
 
 const $ = <T extends Element = HTMLElement>(selector: string): T => document.querySelector<T>(selector)!;
 const desktopMode = import.meta.env.MODE === 'desktop';
@@ -17,13 +21,14 @@ $('#app').innerHTML = `
   <header class="topbar">
     <a class="brand" href="./" aria-label="PUBG 测距首页"><span class="brand-icon">${icon('target')}</span><span>PUBG MAP<span class="brand-sub">离线测距</span></span></a>
     <div class="header-divider"></div><span class="header-caption">让每一次瞄准，更有把握。</span>
-    <div class="header-actions"><button class="vehicle-toolbar-button" id="vehicle-settings" aria-label="载具点位设置" aria-expanded="false">${icon('car')}<span>载具点位</span></button><button class="offline-badge" id="offline-badge" aria-label="查看离线缓存状态"><span class="status-dot"></span><span id="offline-label">正在缓存</span></button><button class="install-button" id="install-button">${icon('download')}<span>安装到手机</span></button><button class="icon-button help-button" id="help-button" aria-label="使用与安装说明">${icon('info')}</button></div>
+    <div class="header-actions"><button class="vehicle-toolbar-button" id="room-settings" aria-label="密室位置设置" aria-expanded="false">${icon('key')}<span>密室位置</span></button><button class="vehicle-toolbar-button" id="vehicle-settings" aria-label="载具点位设置" aria-expanded="false">${icon('car')}<span>载具点位</span></button><button class="offline-badge" id="offline-badge" aria-label="查看离线缓存状态"><span class="status-dot"></span><span id="offline-label">正在缓存</span></button><button class="install-button" id="install-button">${icon('download')}<span>安装到手机</span></button><button class="icon-button help-button" id="help-button" aria-label="使用与安装说明">${icon('info')}</button></div>
   </header>
   <main class="workspace">
     <section class="map-card" aria-label="艾伦格地图">
       <div id="map-viewport" class="map-viewport" role="application" aria-label="艾伦格交互地图：轻点设置炮位，再轻点设置目标；单指拖动，双指缩放" tabindex="0">
         <div id="map-world" class="map-world"><img id="map-image" src="./maps/erangel.webp" alt="PUBG 艾伦格完整地图" width="8192" height="8192" draggable="false" fetchpriority="high" /><svg id="grid-overlay" class="grid-overlay" viewBox="0 0 8192 8192" aria-hidden="true"></svg></div>
         <svg class="vehicle-overlay" id="vehicle-markers" aria-hidden="true"></svg>
+        <svg class="vehicle-overlay" id="room-markers" aria-hidden="true"></svg>
         <svg class="measurement-overlay" id="measurement-overlay" aria-hidden="true"><line id="range-line"/><circle id="range-ring"/></svg>
         <div class="map-marker marker-origin" id="origin-marker" hidden><span class="marker-label">炮位 A</span><span class="marker-ring"><i></i></span></div>
         <div class="map-marker marker-target" id="target-marker" hidden><span class="marker-label">目标 B</span><span class="marker-ring"><i></i></span></div>
@@ -43,6 +48,15 @@ $('#app').innerHTML = `
         <div class="vehicle-record-options"><label>记录载具<select id="record-vehicle-kind" aria-label="记录载具类型"><option value="car">汽车</option><option value="aircraft">飞机</option></select></label><label>刷新类型<select id="record-vehicle-certainty" aria-label="记录刷新类型"><option value="possible">随机可能</option><option value="fixed">固定刷新</option></select></label></div>
         <div class="vehicle-record-buttons"><button id="record-vehicle" class="primary-button">记录点位</button><button id="undo-vehicle" class="secondary-button" disabled>撤销最后自记点</button></div>
         <p class="vehicle-status" id="vehicle-status" role="status">自记点自动保存在本机，重置测距不会删除。</p>
+      </section>
+      <section class="vehicle-panel" id="room-panel" aria-label="密室位置设置面板" hidden>
+        <div class="vehicle-panel-heading"><strong>密室与地下掩体</strong><button class="icon-button" id="close-rooms" aria-label="关闭密室设置">${icon('close')}</button></div>
+        <label class="vehicle-visibility"><input type="checkbox" id="room-visible" checked />显示密室位置<span id="room-total"></span></label>
+        <div class="vehicle-filters"><label class="room-secret_room"><input type="checkbox" id="room-secret" checked />${icon('key')}钥匙密室</label><label class="room-bunker"><input type="checkbox" id="room-bunkers" checked />${icon('bunker')}地下掩体</label></div>
+        <p class="vehicle-scope" id="room-coverage"></p>
+        <p class="vehicle-source">社区参考资料 · 2025-12 快照<br>钥匙图标为原资料的密室，房屋图标为地下掩体。掩体不一定是钥匙密室；入口及开启条件以当前游戏模式和版本为准。</p>
+        <p class="vehicle-source">来源：KampfKarten · MIT<br>位置已内置，可断网查看。地图上的图标已缩小 50%，缩放地图时保持图标大小。</p>
+        <p class="vehicle-status" id="room-status" role="status">筛选自动保存在本机；Reset 保留图层和视角。</p>
       </section>
       <div class="map-hint" id="map-hint">${icon('target')}<span id="hint-text">轻点地图，设置迫击炮位置</span><button id="finish-recording" hidden>结束记录</button></div>
       <div class="map-loading" id="map-loading"><span class="loading-cross">${icon('target')}</span><span id="map-loading-text">正在展开艾伦格地图…</span><button id="retry-map" class="secondary-button" hidden>重新加载地图</button></div>
@@ -73,12 +87,15 @@ if (desktopMode) {
   $('.install-steps').innerHTML = '<li><span>01</span><div><strong>选择战场</strong><p id="cache-description">从左上角切换六张内置地图。</p></div></li><li><span>02</span><div><strong>点击两次，即可测距</strong><p>先选炮位，再选目标；按住拖动地图，滚轮或双指缩放。重置定点保留当前视角。</p></div></li><li><span>03</span><div><strong>随程序一起带走</strong><p>上次选择的地图保存在程序旁的 data 文件夹。移动或更新应用时，请一同保留这个文件夹。</p></div></li>';
   $('#help-dialog a').replaceWith(document.createTextNode('PUBG 官方 API 素材'));
   $('.quick-guide p:nth-of-type(2) span').textContent = '按住拖动地图，滚轮或双指缩放';
-  $('.panel-footer > span:last-child').textContent = 'v1.3 桌面版';
+  $('.panel-footer > span:last-child').textContent = 'v1.4 桌面版';
 }
 
 const vehicleHelp = document.createElement('p');
 vehicleHelp.textContent = '载具点位：汽车与飞机用不同图标，实心为固定点、空心为可能点。可在“载具点位”中筛选或进入记录模式，点击地图补记；结束记录后恢复测距。自记点与筛选保存在本机，Reset 不会删除。预置资料来自 KampfKarten（MIT，2025-12 快照），部分地图覆盖不完整。';
 $('.dialog-notes').append(vehicleHelp);
+const roomHelp = document.createElement('p');
+roomHelp.textContent = '右上角“密室位置”可分别开关钥匙密室与地下掩体；金色钥匙为密室，橙色房屋为掩体，两类分开标注。社区位置不保证覆盖完整或适用于每个版本；暂无资料的地图会在面板中说明。地图点位图标与底圈已缩小 50%，不影响测距点击。';
+$('.dialog-notes').append(roomHelp);
 
 const viewport = $('#map-viewport');
 let dimensions = { width: viewport.clientWidth, height: viewport.clientHeight };
@@ -95,13 +112,40 @@ let vehicleState: VehicleStore;
 try { vehicleState = readVehicleStore(localStorage.getItem(vehicleStorageKey)); }
 catch { vehicleState = { ...readVehicleStore(null), readOnly: true }; }
 let recordingVehicle: { kind: VehicleKind; certainty: SpawnCertainty } | null = null;
+const roomStorageKey = 'pubgmap.secret-rooms.v1';
+let roomPreferences: RoomPreferences;
+try { roomPreferences = readRoomPreferences(localStorage.getItem(roomStorageKey)); }
+catch { roomPreferences = { ...readRoomPreferences(null), readOnly: true }; }
+
+function renderRoomLayer(): void {
+  const points = filterRoomPoints(roomDataset.points, activeMap.id, roomPreferences.filters)
+    .map(point => ({ ...point, screen: mapToScreen(point.position, state.view) }))
+    .filter(point => point.screen.x >= -20 && point.screen.y >= -20 && point.screen.x <= dimensions.width + 20 && point.screen.y <= dimensions.height + 20);
+  $('#room-markers').innerHTML = renderRoomMarkers(points);
+}
+
+function renderRoomPanel(): void {
+  const coverage = roomDataset.coverage.find(map => map.mapId === activeMap.id)!;
+  $('#room-total').textContent = `${coverage.secretRooms + coverage.bunkers} 点`;
+  $('#room-coverage').textContent = coverage.status === 'none' ? '本图暂无可靠预置资料，不代表游戏中不存在密室。' : `预置：钥匙密室 ${coverage.secretRooms} · 地下掩体 ${coverage.bunkers}。资料为部分参考位置，不是完整清单。`;
+  for (const [key, selector] of [['visible', '#room-visible'], ['secret_room', '#room-secret'], ['bunker', '#room-bunkers']] as const) $<HTMLInputElement>(selector).checked = roomPreferences.filters[key];
+  $('#room-settings').classList.toggle('layer-active', roomPreferences.filters.visible);
+  if (roomPreferences.readOnly) $('#room-status').textContent = '原设置无法读取，已保留原数据；本次筛选仍可使用，退出后不保存。';
+}
+
+function setRoomPanel(open: boolean): void {
+  $('#room-panel').hidden = !open;
+  $('#room-settings').setAttribute('aria-expanded', String(open));
+  if (open) { setVehiclePanel(false); renderRoomPanel(); }
+}
 
 function renderVehicleLayer(): void {
   const points = filterVehiclePoints([...vehicleDataset.points, ...vehicleState.points], activeMap.id, vehicleState.filters);
-  $('#vehicle-markers').innerHTML = visibleVehiclePoints(points, state.view, dimensions).map(point => `<g class="vehicle-point vehicle-${point.kind} vehicle-${point.certainty}${point.source === 'user' ? ' vehicle-user' : ''}" data-point-id="${point.id}" data-kind="${point.kind}" data-certainty="${point.certainty}" data-source="${point.source}" transform="translate(${point.screen.x} ${point.screen.y})"><circle r="10"/><g transform="translate(-7 -7)">${icon(point.kind === 'car' ? 'car' : 'plane', 'vehicle-glyph', 14)}</g>${point.source === 'user' ? '<circle class="user-point-dot" cx="8" cy="-8" r="2.5"/>' : ''}</g>`).join('');
+  $('#vehicle-markers').innerHTML = renderVehicleMarkers(visibleVehiclePoints(points, state.view, dimensions));
 }
 
 function renderVehiclePanel(): void {
+  renderRoomPanel();
   const builtin = vehicleDataset.points.filter(point => point.mapId === activeMap.id);
   const user = vehicleState.points.filter(point => point.mapId === activeMap.id);
   $('#vehicle-total').textContent = `${builtin.length + user.length} 点`;
@@ -128,7 +172,7 @@ function saveVehicleState(next: VehicleStore): boolean {
 function setVehiclePanel(open: boolean): void {
   $('#vehicle-panel').hidden = !open;
   $('#vehicle-settings').setAttribute('aria-expanded', String(open));
-  if (open) renderVehiclePanel();
+  if (open) { setRoomPanel(false); renderVehiclePanel(); }
 }
 
 function updateMapHint(): void {
@@ -154,6 +198,7 @@ function renderMapMetadata(): void {
 
 function renderView(): void {
   renderVehicleLayer();
+  renderRoomLayer();
   const view = state.view;
   const zoom = view.size / fitView(dimensions).size;
   const world = $('#map-world');
@@ -247,8 +292,19 @@ $('#toggle-grid').addEventListener('click', () => { gridEnabled = !gridEnabled; 
 $('#reset-points').addEventListener('click', () => { state = resetPoints(state); renderMeasurement(); });
 $('#vehicle-settings').addEventListener('click', () => setVehiclePanel($('#vehicle-panel').hasAttribute('hidden')));
 $('#close-vehicles').addEventListener('click', () => setVehiclePanel(false));
+$('#room-settings').addEventListener('click', () => setRoomPanel($('#room-panel').hasAttribute('hidden')));
+$('#close-rooms').addEventListener('click', () => setRoomPanel(false));
+for (const [key, selector] of [['visible', '#room-visible'], ['secret_room', '#room-secret'], ['bunker', '#room-bunkers']] as const) $(selector).addEventListener('change', () => {
+  const next = { ...roomPreferences, filters: { ...roomPreferences.filters, [key]: $<HTMLInputElement>(selector).checked } };
+  try {
+    if (!next.readOnly) localStorage.setItem(roomStorageKey, writeRoomPreferences(next));
+    roomPreferences = next;
+    $('#room-status').textContent = '筛选已保存到本机；Reset 保留图层和视角。';
+  } catch { $('#room-status').textContent = '保存未成功，已保留原设置。'; }
+  renderRoomPanel(); renderRoomLayer();
+});
 $('#finish-recording').addEventListener('click', finishRecording);
-window.addEventListener('keydown', event => { if (event.key === 'Escape') { finishRecording(); setVehiclePanel(false); } });
+window.addEventListener('keydown', event => { if (event.key === 'Escape') { finishRecording(); setVehiclePanel(false); setRoomPanel(false); } });
 for (const [key, selector] of [['visible', '#vehicle-visible'], ['car', '#vehicle-cars'], ['aircraft', '#vehicle-aircraft'], ['fixed', '#vehicle-fixed'], ['possible', '#vehicle-possible']] as const) $(selector).addEventListener('change', () => {
   const next = { ...vehicleState, filters: { ...vehicleState.filters, [key]: $<HTMLInputElement>(selector).checked } };
   if (recordingVehicle && (!next.filters.visible || !next.filters[recordingVehicle.kind] || !next.filters[recordingVehicle.certainty])) finishRecording();

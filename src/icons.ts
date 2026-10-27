@@ -1,4 +1,6 @@
 const paths: Record<string, string> = {
+  key: '<circle cx="8" cy="8" r="4"/><path d="m11 11 10 10m-3-3 3-3m-6 0 3-3"/>',
+  bunker: '<path d="M3 21V10l9-7 9 7v11ZM9 21v-9h6v9M2 10h20"/>',
   car: '<path d="m5 8 2-4h10l2 4M4 8h16v9H4zM7 17v3m10-3v3M7 12h2m6 0h2M5 8H2m17 0h3"/>',
   plane: '<path d="m12 2 2 8 7 5v2l-7-3v5l2 2-4-1-4 1 2-2v-5l-7 3v-2l7-5 2-8Z"/>',
   target: '<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>',

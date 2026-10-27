@@ -47,7 +47,7 @@ jobs:
       - name: 将便携 ZIP 解压至中文与空格路径
         shell: pwsh
         run: |
-          $zip = Join-Path $env:RUNNER_TEMP 'PUBG-Rangefinder-1.3.0-win-x64-portable.zip'
+          $zip = Join-Path $env:RUNNER_TEMP 'PUBG-Rangefinder-1.4.0-win-x64-portable.zip'
           Compress-Archive -Path 'desktop/release/win-unpacked/*' -DestinationPath $zip
           $destination = Join-Path $env:RUNNER_TEMP 'PUBG 中文便携 测试'
           Expand-Archive -Path $zip -DestinationPath $destination
@@ -60,7 +60,7 @@ jobs:
       - name: 上传便携应用文件
         uses: actions/upload-artifact@v4
         with:
-          name: PUBG-Rangefinder-1.3.0-win-x64-portable
+          name: PUBG-Rangefinder-1.4.0-win-x64-portable
           path: desktop/release/win-unpacked/
           retention-days: 90
           compression-level: 6

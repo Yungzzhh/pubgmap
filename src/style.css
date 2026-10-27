@@ -37,16 +37,19 @@ a { color: inherit; }
 .vehicle-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
 .vehicle-point { color: #89d5fa; }
 .vehicle-point.vehicle-aircraft { color: #d0b3ff; }
-.vehicle-point > circle { stroke: currentColor; stroke-width: 1.2; fill: #101c20e6; }
-.vehicle-point.vehicle-fixed > circle:first-child { fill: currentColor; }
-.vehicle-point .icon { width: 14px; height: 14px; stroke-width: 1.7; }
+.point-artwork > circle { stroke: currentColor; stroke-width: 1.2; fill: #101c20e6; }
+.vehicle-point.vehicle-fixed .point-artwork > circle:first-child { fill: currentColor; }
+.vehicle-point .icon, .room-point .icon { width: 14px; height: 14px; stroke-width: 1.7; }
 .vehicle-point.vehicle-fixed .icon { color: #101719; }
 .vehicle-point .user-point-dot { fill: #f5ffe8; stroke: #101719; stroke-width: 1; }
+.room-secret_room, #room-settings.layer-active { color: #ffdf80; }
+.room-bunker { color: #ffae72; }
+.room-point .point-artwork > circle { fill: #211e13ef; }
 .vehicle-panel { position: absolute; right: 16px; top: 16px; z-index: 12; width: min(310px, calc(100% - 24px)); max-height: calc(100% - 32px); overflow: auto; padding: 13px 16px 15px; background: #14201ef8; color: var(--text); border: 1px solid #536863; border-radius: 10px; box-shadow: 0 12px 36px #0006; }
 .vehicle-panel-heading { display: flex; align-items: center; justify-content: space-between; margin: -5px -7px 4px 0; }
 .vehicle-panel-heading strong { font-size: 15px; font-weight: 550; }
 .vehicle-visibility { display: flex; align-items: center; gap: 8px; font-size: 12px; min-height: 32px; }
-#vehicle-total { color: #94a89c; margin-left: auto; font: 11px var(--mono); }
+#vehicle-total, #room-total { color: #94a89c; margin-left: auto; font: 11px var(--mono); }
 .vehicle-panel input { accent-color: var(--accent); width: 14px; height: 14px; margin: 0; }
 .vehicle-filters { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; border: solid #34453e; border-width: 1px 0; padding: 7px 0; margin: 7px 0; }
 .vehicle-filters label { display: flex; align-items: center; gap: 7px; font-size: 11px; min-height: 30px; cursor: pointer; }
