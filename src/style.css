@@ -30,6 +30,8 @@ a { color: inherit; }
 .install-button .icon { width: 16px; height: 16px; }
 .help-button { display: none !important; }
 .desktop-app .help-button { display: grid !important; }
+.update-banner { display: flex; flex-shrink: 0; align-items: center; justify-content: center; gap: 12px; padding: 9px 16px; color: var(--accent); background: #26321f; border-bottom: 1px solid #56653b; font-size: 11px; }
+.update-banner .secondary-button { width: auto; min-height: 32px; padding: 4px 12px; white-space: nowrap; font-size: 11px; }
 .vehicle-toolbar-button { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 40px; padding: 0 12px; border: 1px solid #3b4b50; border-radius: 7px; background: #192427; font-size: 12px; white-space: nowrap; }
 .vehicle-toolbar-button .icon { width: 18px; height: 18px; }
 .vehicle-toolbar-button.layer-active { color: #9ed8f3; border-color: #547584; }

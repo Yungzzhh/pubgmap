@@ -63,7 +63,9 @@ self.addEventListener('message', event => {
       const cache = await caches.open(CACHE_NAME);
       if (event.data.type === 'CACHE_REPAIR') await cache.addAll(ASSET_URLS.map(url => new Request(url, { cache: 'reload' })));
       const entries = await Promise.all(ASSET_URLS.map(url => cache.match(url)));
-      event.ports[0]?.postMessage({ type: 'CACHE_STATUS', ready: entries.every(Boolean), version: VERSION });
+      const entryUrl = event.data.entryUrl;
+      const pageCached = typeof entryUrl === 'string' && ASSET_URLS.includes(entryUrl) && !!await cache.match(entryUrl);
+      event.ports[0]?.postMessage({ type: 'CACHE_STATUS', ready: entries.every(Boolean), version: VERSION, entryUrl, pageCached });
     } catch {
       event.ports[0]?.postMessage({ type: 'CACHE_STATUS', ready: false, version: VERSION });
     }
@@ -76,6 +78,13 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET' || url.origin !== new URL(SCOPE).origin || !url.href.startsWith(SCOPE)) return;
   if (request.mode === 'navigate') {
     event.respondWith((async () => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 3000);
+      try {
+        const response = await fetch(request, { cache: 'no-store', signal: controller.signal });
+        if (response.ok) return response;
+      } catch { /* Keep the complete installed snapshot available offline. */ }
+      finally { clearTimeout(timeout); }
       const cache = await caches.open(CACHE_NAME);
       return await cache.match(new URL('./index.html', SCOPE).href) || fetch(request);
     })());

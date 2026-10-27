@@ -23,6 +23,7 @@ $('#app').innerHTML = `
     <div class="header-divider"></div><span class="header-caption">让每一次瞄准，更有把握。</span>
     <div class="header-actions"><button class="vehicle-toolbar-button" id="room-settings" aria-label="密室位置设置" aria-expanded="false">${icon('key')}<span>密室位置</span></button><button class="vehicle-toolbar-button" id="vehicle-settings" aria-label="载具点位设置" aria-expanded="false">${icon('car')}<span>载具点位</span></button><button class="offline-badge" id="offline-badge" aria-label="查看离线缓存状态"><span class="status-dot"></span><span id="offline-label">正在缓存</span></button><button class="install-button" id="install-button">${icon('download')}<span>安装到手机</span></button><button class="icon-button help-button" id="help-button" aria-label="使用与安装说明">${icon('info')}</button></div>
   </header>
+  <div class="update-banner" id="app-update" role="status" hidden><span>新版已缓存，可刷新启用。刷新会清除本次测距定点，已保存载具点仍保留。</span><button id="apply-update" class="secondary-button">更新页面</button></div>
   <main class="workspace">
     <section class="map-card" aria-label="艾伦格地图">
       <div id="map-viewport" class="map-viewport" role="application" aria-label="艾伦格交互地图：轻点设置炮位，再轻点设置目标；单指拖动，双指缩放" tabindex="0">
@@ -70,7 +71,7 @@ $('#app').innerHTML = `
       <div class="panel-footer"><span class="footer-dot"></span>为离线而设计<span>v1.1</span></div>
     </aside>
   </main>
-  <dialog id="help-dialog"><div class="dialog-heading"><span class="eyebrow">READY WHEN YOU ARE</span><button class="icon-button" id="close-help" aria-label="关闭说明">${icon('close')}</button></div><h2>把战场地图，装进口袋。</h2><p class="dialog-intro">安装到主屏幕后，可以像 App 一样打开。</p><ol class="install-steps"><li><span>01</span><div><strong>联网打开，等待全部地图缓存完成</strong><p id="cache-description">六张地图与应用正在保存到这台设备。</p></div></li><li><span>02</span><div><strong>添加到手机主屏幕</strong><p>iPhone：用 Safari 打开，点分享 →「添加到主屏幕」。<br>Android：在 Chrome 菜单中选择「安装应用」或「添加到主屏幕」。</p></div></li><li><span>03</span><div><strong>打开一次，再安心离线</strong><p>从主屏幕启动，确认显示「离线就绪」后即可断网切换全部地图。浏览器数据被清理后，需要重新联网缓存。</p></div></li></ol><button class="primary-button" id="native-install" hidden>${icon('download')}安装应用</button><button class="secondary-button" id="retry-cache" hidden>重新准备离线缓存</button><div class="dialog-notes"><p>点击地图左上角名称切换战场。每张地图独立保留本次打开期间的定点和视角；下次打开会记住上次选择的地图。</p><p>轻点设置炮位 A，再点目标 B 即可测距。后续点击只调整目标；重置定点保留视角。地图可用方向键移动，按 + / − 缩放。</p><p>结果为地图水平直线距离，不含地形高差及弹道修正。参考射程 121–700 米。</p><p>地图来源：<a href="https://github.com/pubg/api-assets" target="_blank" rel="noreferrer">PUBG 官方 API 素材</a>。本工具为非官方玩家工具，地图版权归 KRAFTON 所有。</p></div></dialog>
+  <dialog id="help-dialog"><div class="dialog-heading"><span class="eyebrow">READY WHEN YOU ARE</span><button class="icon-button" id="close-help" aria-label="关闭说明">${icon('close')}</button></div><h2>把战场地图，装进口袋。</h2><p class="dialog-intro">安装到主屏幕后，可以像 App 一样打开。</p><ol class="install-steps"><li><span>01</span><div><strong>联网打开，等待全部地图缓存完成</strong><p id="cache-description">六张地图与应用正在保存到这台设备。</p></div></li><li><span>02</span><div><strong>添加到手机主屏幕</strong><p>iPhone：用 Safari 打开，点分享 →「添加到主屏幕」。<br>Android：在 Chrome 菜单中选择「安装应用」或「添加到主屏幕」。</p></div></li><li><span>03</span><div><strong>打开一次，再安心离线</strong><p>从主屏幕启动，确认显示「离线就绪」后即可断网切换全部地图。浏览器数据被清理后，需要重新联网缓存。</p></div></li></ol><button class="primary-button" id="native-install" hidden>${icon('download')}安装应用</button><button class="secondary-button" id="check-update">检查并获取更新</button><button class="secondary-button" id="retry-cache" hidden>重新准备离线缓存</button><div class="dialog-notes"><p>点击地图左上角名称切换战场。每张地图独立保留本次打开期间的定点和视角；下次打开会记住上次选择的地图。</p><p>轻点设置炮位 A，再点目标 B 即可测距。后续点击只调整目标；重置定点保留视角。地图可用方向键移动，按 + / − 缩放。</p><p>结果为地图水平直线距离，不含地形高差及弹道修正。参考射程 121–700 米。</p><p>地图来源：<a href="https://github.com/pubg/api-assets" target="_blank" rel="noreferrer">PUBG 官方 API 素材</a>。本工具为非官方玩家工具，地图版权归 KRAFTON 所有。</p></div></dialog>
 `;
 
 if (desktopMode) {
@@ -80,6 +81,7 @@ if (desktopMode) {
   $('.brand-sub').textContent = '桌面离线测距';
   $('#install-button').hidden = true;
   $('#native-install').hidden = true;
+  $('#check-update').hidden = true;
   $('#help-button').setAttribute('aria-label', '使用说明');
   $('#offline-badge').setAttribute('aria-label', '查看本地地图说明');
   $('#help-dialog h2').textContent = 'PUBG 迫击炮测距';
@@ -96,6 +98,7 @@ $('.dialog-notes').append(vehicleHelp);
 const roomHelp = document.createElement('p');
 roomHelp.textContent = '右上角“密室位置”可分别开关钥匙密室与地下掩体；金色钥匙为密室，橙色房屋为掩体，两类分开标注。社区位置不保证覆盖完整或适用于每个版本；暂无资料的地图会在面板中说明。地图点位图标与底圈已缩小 50%，不影响测距点击。';
 $('.dialog-notes').append(roomHelp);
+if (!desktopMode) $('.panel-footer > span:last-child').textContent = 'v1.4.1 网页版';
 
 const viewport = $('#map-viewport');
 let dimensions = { width: viewport.clientWidth, height: viewport.clientHeight };
@@ -389,9 +392,12 @@ function renderOffline(): void {
   $('#cache-description').textContent = ready ? '全部六张地图与应用已完整缓存到这台设备，可以离线切换和测距。' : offlineStatus === 'unsupported' ? '请通过 HTTPS 地址或 localhost 打开，才能启用离线缓存。' : offlineStatus === 'failed' ? '缓存尚未完成，请保持联网并重新准备离线缓存。' : '六张地图与应用正在保存到这台设备，请暂时保持联网。';
   $('#retry-cache').hidden = offlineStatus !== 'failed';
 }
-const startOffline = (repair = false) => void prepareOffline(status => { offlineStatus = status; renderOffline(); }, repair, desktopMode ? 'desktop' : 'web');
+const startOffline = (repair = false) => void prepareOffline(status => { offlineStatus = status; renderOffline(); }, repair, desktopMode ? 'desktop' : 'web', () => { $('#app-update').hidden = false; });
 $('#retry-cache').addEventListener('click', () => startOffline(true));
-window.addEventListener('online', renderOffline);
+$('#check-update').addEventListener('click', () => startOffline());
+$('#apply-update').addEventListener('click', () => location.reload());
+window.addEventListener('online', () => { renderOffline(); if (!desktopMode && $('#app-update').hidden) startOffline(); });
+window.addEventListener('focus', () => { if (!desktopMode && navigator.onLine && $('#app-update').hidden) startOffline(); });
 window.addEventListener('offline', renderOffline);
 renderMapMetadata();
 renderMeasurement();

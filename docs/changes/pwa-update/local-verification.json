@@ -1,0 +1,35 @@
+{
+  "fixture": "localhost current v1.4.1 -> simulated v1.4.2",
+  "measurementBeforeUpdate": "499",
+  "measurementAfterNotice": "499",
+  "explicitUpdateWorked": true,
+  "userVehiclePointsAfterUpdate": 1,
+  "aircraftFilterPreserved": true,
+  "serverUnavailableMaps": [
+    {
+      "id": "erangel",
+      "naturalWidth": 4096
+    },
+    {
+      "id": "miramar",
+      "naturalWidth": 4096
+    },
+    {
+      "id": "sanhok",
+      "naturalWidth": 4096
+    },
+    {
+      "id": "vikendi",
+      "naturalWidth": 4096
+    },
+    {
+      "id": "taego",
+      "naturalWidth": 4096
+    },
+    {
+      "id": "deston",
+      "naturalWidth": 4096
+    }
+  ],
+  "unavailableStatus": 503
+}
